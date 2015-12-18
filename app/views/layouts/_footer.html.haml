@@ -4,20 +4,8 @@
   .container
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-        %ul.list-inline.text-center
-          %li
-            %a{:href => "//www.twitter.com/trailheadlabs"}
-              %span.fa-stack.fa-lg
-                %i.fa.fa-circle.fa-stack-2x
-                %i.fa.fa-twitter.fa-stack-1x.fa-inverse
-          %li
-            %a{:href => "//www.facebook.com/trailheadlabs"}
-              %span.fa-stack.fa-lg
-                %i.fa.fa-circle.fa-stack-2x
-                %i.fa.fa-facebook.fa-stack-1x.fa-inverse
-          %li
-            %a{:href => "//www.github.com/trailheadlabs/carlessca"}
-              %span.fa-stack.fa-lg
-                %i.fa.fa-circle.fa-stack-2x
-                %i.fa.fa-github.fa-stack-1x.fa-inverse
-        %p.copyright.text-muted Copyright © Trailhead Labs
+        .row
+          .col-sm-6
+            .copyright.text-muted Copyright © Trailhead Labs
+          .col-sm-6
+            %ul.nav.navbar-nav.navbar-right= render 'layouts/navigation_links'

@@ -1,8 +1,8 @@
-/*!
- * Clean Blog v1.0.0 (http://startbootstrap.com)
- * Copyright 2014 Start Bootstrap
- * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
+/*
+ *= require variables
  */
+@import 'variables';
+
 body {
   font-size: 20px;
   color: #404040;
@@ -67,86 +67,45 @@ hr.small {
   letter-spacing: 1px;
 }
 
-@media only screen and (min-width: 768px) {
-  .navbar-custom .navbar-brand {
-    text-shadow: 2px 2px 4px #888;
-  }
-
-  .navbar-custom .nav li a {
-    text-shadow: 1px 1px 2px #888;
-  }
-
-  .navbar-custom .nav-label {
-      display: none;
-  }
-
-  .navbar-custom {
-    background: transparent;
-    border-bottom: 1px solid transparent;
-  }
-  .navbar-custom .navbar-brand {
-    color: white;
-    padding: 20px;
-  }
-  .navbar-custom .navbar-brand:hover,
-  .navbar-custom .navbar-brand:focus {
-    color: rgba(255, 255, 255, 0.8);
-  }
-  .navbar-custom .nav li a {
-    color: white;
-    padding: 20px;
-  }
-  .navbar-custom .nav li a:hover,
-  .navbar-custom .nav li a:focus {
-    color: rgba(255, 255, 255, 0.8);
-  }
+.navbar-custom .navbar-nav > li {
+    float: left;
 }
-@media only screen and (min-width: 1170px) {
-  .navbar-custom {
-    -webkit-transition: background-color 0.3s;
-    -moz-transition: background-color 0.3s;
-    transition: background-color 0.3s;
-    /* Force Hardware Acceleration in WebKit */
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  .navbar-custom.is-fixed {
-    /* when the user scrolls down, we hide the header right above the viewport */
-    position: fixed;
-    top: -61px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid #f2f2f2;
-    -webkit-transition: -webkit-transform 0.3s;
-    -moz-transition: -moz-transform 0.3s;
-    transition: transform 0.3s;
-  }
-  .navbar-custom.is-fixed .navbar-brand {
-    color: #404040;
-  }
-  .navbar-custom.is-fixed .navbar-brand:hover,
-  .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #0085a1;
-  }
-  .navbar-custom.is-fixed .nav li a {
-    color: #404040;
-  }
-  .navbar-custom.is-fixed .nav li a:hover,
-  .navbar-custom.is-fixed .nav li a:focus {
-    color: #0085a1;
-  }
-  .navbar-custom.is-visible {
-    /* if the user changes the scrolling direction, we show the header */
-    -webkit-transform: translate3d(0, 100%, 0);
-    -moz-transform: translate3d(0, 100%, 0);
-    -ms-transform: translate3d(0, 100%, 0);
-    -o-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
+
+.navbar-custom .navbar-brand {
+  text-shadow: 2px 2px 4px #888;
+}
+
+.navbar-custom .nav li a {
+  text-shadow: 1px 1px 2px #888;
+}
+
+.navbar-custom .nav-label {
+    display: none;
+}
+
+.navbar-custom {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+.navbar-custom .navbar-brand {
+  color: white;
+  padding: 20px;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+.navbar-custom .nav li a {
+  color: white;
+  padding: 20px;
+}
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-nav {
+  float:right;
 }
 .intro-header {
   background-color: #808080;
@@ -156,8 +115,16 @@ hr.small {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
+
+@media only screen and (min-width: 768px) {
+  .intro-header{
+    margin-bottom: 50px;
+  }
+
+}
+
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
@@ -280,16 +247,30 @@ hr.small {
   border-bottom-left-radius: 5px;
 }
 footer {
-  padding: 50px 0 65px;
+  padding: 10px 0px;
+  background-color: $blue;
+  color: white;
 }
 footer .list-inline {
   margin: 0;
   padding: 0;
 }
 footer .copyright {
-  font-size: 14px;
-  text-align: center;
+  padding:15px 0px;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
   margin-bottom: 0;
+}
+footer .nav a{
+  color: white;
+  &:hover, &:focus{
+    color:white;
+    background-color: inherit;
+  }
+}
+footer .navbar-nav li{
+  float:left;
 }
 .floating-label-form-group {
   font-size: 14px;
