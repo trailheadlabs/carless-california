@@ -3,7 +3,6 @@
  * Copyright 2014 Start Bootstrap
  * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
  */
-
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -372,12 +371,12 @@ form .row:first-child .floating-label-form-group {
   background-color: #404040;
   cursor: not-allowed;
 }
-::-moz-selection {
+ ::-moz-selection {
   color: white;
   text-shadow: none;
   background: #0085a1;
 }
-::selection {
+ ::selection {
   color: white;
   text-shadow: none;
   background: #0085a1;
