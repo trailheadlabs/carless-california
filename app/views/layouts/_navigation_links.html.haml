@@ -1,8 +1,16 @@
 %li
-  = link_to 'Home', root_path
+  = link_to root_path do
+    %i.fa.fa-home
+    %span.nav-label
+      Home
 %li
-  = link_to 'About', page_path('about')
+  = link_to root_path do
+    %i.fa.fa-facebook-square
+
 %li
-  = link_to 'Sample Post', page_path('post')
+  = link_to root_path do
+    %i.fa.fa-twitter-square
+
 %li
-  = link_to 'Contact', page_path('contact')
+  = link_to root_path do
+    %i.fa.fa-instagram
