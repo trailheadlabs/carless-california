@@ -37,9 +37,16 @@ h3{
   font-weight:300;
   color:$blue;
 }
+h4{
+  font-size:27px;
+  text-transform: uppercase;
+  font-weight:700;
+  color:$blue;
+}
 .site-welcome{
   .lead{
-    font-weight:400;
+    font-weight:300;
+    font-size:27px;
   }
 }
 a {
@@ -77,7 +84,7 @@ hr.small {
 }
 .navbar-custom .nav li a {
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 27px;
   font-weight: 400;
   letter-spacing: 1px;
 }
@@ -91,7 +98,7 @@ hr.small {
 }
 
 .navbar-custom .nav li a {
-  text-shadow: 1px 1px 2px #888;
+  text-shadow: 1px 1px 1px #555;
 }
 
 .navbar-custom .nav-label {
@@ -122,7 +129,8 @@ hr.small {
 .navbar-nav {
   float:right;
 }
-.intro-header {
+.featured-header, .intro-header {
+  position: relative;
   background-color: #808080;
   background: no-repeat center center;
   background-attachment: scroll;
@@ -133,8 +141,46 @@ hr.small {
   margin-bottom: 20px;
 }
 
+.featured-header{
+  height: 500px;
+  background-image: url('/assets/placeholders/featured_trip.png')
+}
+
+.featured-trail-container{
+  padding: 30px 0px;
+  text-shadow: 1px 1px 5px #666;
+  h4, p, .lead{
+    color:white;
+    font-size: 27px;
+  }
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:rgba(62, 109, 146, 0.6);
+}
+
+.featured-trail-cta{
+
+}
+
+.featured-trail-button{
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 27px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  padding: 18px 18px;
+  border: solid 3px white;
+  &:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
 @media only screen and (min-width: 768px) {
-  .intro-header{
+  .intro-header, .featured-header{
     margin-bottom: 50px;
   }
 

@@ -49,13 +49,3 @@ test:
   username: carlessca
   password:
   template: template0
-
-production:
-  adapter:  postgresql
-  host:     localhost
-  encoding: unicode
-  database: carlessca_production
-  pool:     5
-  username: carlessca
-  password:
-  template: template0

@@ -3,7 +3,7 @@
 %header.intro-header{:style => "background-image: url('/assets/photos/yosemite_unsplash.jpg')"}
   .container
     .row
-      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
         .site-heading
           %h1.text-left
             CarLess
@@ -12,8 +12,8 @@
 / Main Content
 .container
   .row
-    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-      %section.site-welcome
+    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+      .site-welcome
         %h2
           Hello!
         .lead
@@ -21,10 +21,25 @@
         %br
         = image_tag '/assets/placeholders/destination_tiles.png'
         %br
-        %br  
-      %section.featured-trip
-        = image_tag '/assets/placeholders/featured_trip.png'
-      %section.partners
+        %br
+%header.featured-header
+  .featured-trail-container
+    .container
+      .row
+        .col-lg-7.col-lg-offset-1.col-md-10.col-md-offset-1
+          .featured-trail-cta
+            %h4
+              Featured Trail
+            .lead
+              Rem aperiam, eaque ipsa queae ab illo inventore veritatis et quasi rem aperiam.
+        .col-lg-3.col-lg-offset-1.col-md-10.col-md-offset-1
+          .featured-trail-button
+            Check it out
+
+.container
+  .row
+    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+      .partners
         %h3
           Partners
         %br
