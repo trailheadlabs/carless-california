@@ -1,0 +1,28 @@
+@import 'variables';
+
+footer {
+  padding: 10px 0px;
+  background-color: $blue;
+  color: white;
+}
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+}
+footer .copyright {
+  padding:15px 0px;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+footer .nav a{
+  color: white;
+  &:hover, &:focus{
+    color:white;
+    background-color: inherit;
+  }
+}
+footer .navbar-nav li{
+  float:left;
+}

@@ -1,0 +1,41 @@
+@import 'variables';
+
+// DESTINATION CARDS
+.destination-card
+{
+  position: relative;
+  background-color: #808080;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 20px;
+  height: 300px;
+  .title-box{
+    text-shadow: 1px 1px 5px #666;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $blueBackdrop;
+    text-align: center;
+    padding: 20px 10px;
+    h4{
+      color: white;
+    }
+  }
+}
+
+.yosemite{
+  .destination-card{
+    background-image: url('/assets/photos/yosemite.jpg')
+  }
+}
+
+.south-lake-tahoe{
+  .destination-card{
+    background-image: url('/assets/photos/tahoe.jpg')
+  }
+}

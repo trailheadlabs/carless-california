@@ -1,0 +1,60 @@
+@import 'variables';
+
+.featured-header, .intro-header {
+  position: relative;
+  background-color: #808080;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 20px;
+}
+
+.featured-header{
+  height: 500px;
+  background-image: url('/assets/placeholders/featured_trip.png')
+}
+
+.featured-trail-container{
+  padding: 30px 0px;
+  text-shadow: 1px 1px 5px #666;
+  h4, p, .lead{
+    color:white;
+    font-size: 27px;
+  }
+  @media only screen and (max-width: 768px) {
+    h4{
+      font-size: 20px;
+    }
+  }
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:$blueBackdrop;
+}
+
+.featured-trail-cta{
+
+}
+
+.featured-trail-button{
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 27px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  padding: 18px 18px;
+  border: solid 3px white;
+  &:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+
+}

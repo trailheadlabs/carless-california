@@ -11,11 +11,10 @@
  * file per style scope.
  *
  *= require 1st_load_framework
- *= require clean-blog
+ *= require carless
+ *= require navbar
+ *= require headers
+ *= require featured
+ *= require footer
+ *= require destinations
  */
-
-@import "variables";
-
-body,html{
-  font-family: 'Open Sans', sans-serif;
-}

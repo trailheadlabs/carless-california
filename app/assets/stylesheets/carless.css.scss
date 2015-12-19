@@ -1,0 +1,170 @@
+@import 'variables';
+
+body {
+  font-size: 20px;
+  color: #404040;
+  font-family: 'Open Sans', sans-serif;
+  webkit-tap-highlight-color: #0085a1;
+}
+
+p {
+  line-height: 1.5;
+  margin: 30px 0;
+}
+
+p a {
+  text-decoration: underline;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+h1{
+  text-shadow: 2px 2px 6px #666;
+  line-height:70px;
+}
+h2{
+  font-size:60px;
+  font-weight: 400;
+  color: $blue;
+}
+h3{
+  font-size:40px;
+  font-weight:300;
+  color:$blue;
+}
+h4{
+  font-size:27px;
+  text-transform: uppercase;
+  font-weight:700;
+  color:$blue;
+}
+.lead{
+  font-size: 27px;
+}
+@media only screen and (max-width: 768px) {
+  h2{
+    font-size:40px;
+  }
+  h3{
+    font-size: 30px;
+  }
+  h4{
+    font-size: 20px;
+  }
+}
+
+a {
+  color: #404040;
+}
+a:hover,
+a:focus {
+  color: #0085a1;
+}
+a img:hover,
+a img:focus {
+  cursor: zoom-in;
+}
+blockquote {
+  color: #808080;
+  font-style: italic;
+}
+hr.small {
+  max-width: 100px;
+  margin: 15px auto;
+  border-width: 4px;
+  border-color: white;
+}
+
+.site-welcome{
+  .lead{
+    font-weight:300;
+    font-size:27px;
+  }
+}
+
+.section-heading {
+  font-size: 36px;
+  margin-top: 60px;
+  font-weight: 700;
+}
+.caption {
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  font-style: italic;
+  margin: 0;
+  display: block;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.btn {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 0;
+  padding: 15px 25px;
+}
+.btn-lg {
+  font-size: 16px;
+  padding: 25px 35px;
+}
+.btn-default:hover,
+.btn-default:focus {
+  background-color: #0085a1;
+  border: 1px solid #0085a1;
+  color: white;
+}
+ ::-moz-selection {
+  color: white;
+  text-shadow: none;
+  background: #0085a1;
+}
+ ::selection {
+  color: white;
+  text-shadow: none;
+  background: #0085a1;
+}
+img::selection {
+  color: white;
+  background: transparent;
+}
+img::-moz-selection {
+  color: white;
+  background: transparent;
+}
+
+// DESTINATION CARDS
+.destination-card
+{
+  position: relative;
+  background-color: #808080;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 20px;
+  height: 300px;
+}
+
+.yosemite{
+  .destination-card{
+    background-image: url('/assets/photos/yosemite.jpg')
+  }
+}
+
+.south-lake-tahoe{
+  .destination-card{
+    background-image: url('/assets/photos/tahoe.jpg')
+  }
+}

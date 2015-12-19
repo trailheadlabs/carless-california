@@ -19,20 +19,26 @@
         .lead
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inven- tore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
         %br
-        = image_tag '/assets/placeholders/destination_tiles.png'
+      .row.destination-cards
+        .col-lg-5.col-lg-offset-1
+          .south-lake-tahoe
+            = render partial: "destination_card", locals: {title:"South Lake Tahoe"}
+        .col-lg-5
+          .yosemite
+            = render partial: "destination_card", locals: {title:"Yosemite"}
         %br
         %br
 %header.featured-header
   .featured-trail-container
     .container
       .row
-        .col-lg-7.col-lg-offset-1.col-md-10.col-md-offset-1
+        .col-lg-7.col-lg-offset-1.col-md-7.col-md-offset-1
           .featured-trail-cta
             %h4
               Featured Trail
             .lead
               Rem aperiam, eaque ipsa queae ab illo inventore veritatis et quasi rem aperiam.
-        .col-lg-3.col-lg-offset-1.col-md-10.col-md-offset-1
+        .col-lg-3.col-md-3
           .featured-trail-button
             Check it out
 
