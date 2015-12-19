@@ -52,7 +52,7 @@
     padding: 18px 18px;
     border: solid 3px $blue;
     &:hover{
-      background-color: rgba(30, 30, 30, 0.2);
+      background-color: $blueHover;
     }
     @media only screen and (max-width: 768px) {
       font-size: 20px;
