@@ -3,42 +3,45 @@
 %header.intro-header{:style => "background-image: url('/assets/photos/yosemite.jpg')"}
   .container
     .row
-      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+      .col-md-12
         .destination-heading
           %h1.text-center
             Sacramento to
             %br
             Yosemite
-/ Main Content
 .container
   .row
-    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
-      .site-welcome
-        %h2
-          Hello!
-        .lead
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inven- tore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        %br
-%header.featured-header
-  .featured-trail-container
-    .container
-      .row
-        .col-lg-7.col-lg-offset-1.col-md-7.col-md-offset-1
-          .featured-trail-cta
-            %h4
-              Featured Trail
-            .lead
-              Rem aperiam, eaque ipsa queae ab illo inventore veritatis et quasi rem aperiam.
-        .col-lg-3.col-md-3
-          .featured-trail-button
-            Check it out
+    .col-md-12
+      .destination-heading
+        = image_tag "/assets/placeholders/destination_profile.png", class: "destination-image"
+        .destination-blurb
+          .lead
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+          .lead
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        .clearfix
 
+.additional-info-container
+  .container
+    .row
+      .col-md-12
+        %h4 Additional Info
 .container
   .row
-    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
-      .partners
-        %h3
-          Partners
-        %br
-        = image_tag '/assets/placeholders/partners.png'
-        %br
+    .col-md-12
+      %h3
+        Getting to Yosemite
+      .lead
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+      .lead
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+      .lead
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+
+.blue-container
+  .container
+    .row
+      .col-md-12
+        %h4 Top Transit Accessible Activities
+- 10.times do
+  = render partial: "/pages/activity"
