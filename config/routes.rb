@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  root to: 'destinations#index'
+  get "/yosemite" => 'high_voltage/pages#show', id: 'yosemite'
 end

@@ -141,30 +141,3 @@ img::-moz-selection {
   color: white;
   background: transparent;
 }
-
-// DESTINATION CARDS
-.destination-card
-{
-  position: relative;
-  background-color: #808080;
-  background: no-repeat center center;
-  background-attachment: scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  margin-bottom: 20px;
-  height: 300px;
-}
-
-.yosemite{
-  .destination-card{
-    background-image: url('/assets/photos/yosemite.jpg')
-  }
-}
-
-.south-lake-tahoe{
-  .destination-card{
-    background-image: url('/assets/photos/tahoe.jpg')
-  }
-}

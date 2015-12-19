@@ -1,14 +1,14 @@
 / Page Header
 / Set your background image for this header on the line below.
-%header.intro-header{:style => "background-image: url('/assets/photos/yosemite_unsplash.jpg')"}
+%header.intro-header{:style => "background-image: url('/assets/photos/yosemite.jpg')"}
   .container
     .row
       .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
-        .site-heading
-          %h1.text-left
-            CarLess
+        .destination-heading
+          %h1.text-center
+            Sacramento to
             %br
-            California
+            Yosemite
 / Main Content
 .container
   .row
@@ -18,15 +18,6 @@
           Hello!
         .lead
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inven- tore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        %br
-      .row.destination-cards
-        .col-lg-5.col-lg-offset-1
-          .south-lake-tahoe
-            = render partial: "destination_card", locals: {title:"South Lake Tahoe"}
-        .col-lg-5
-          .yosemite
-            = render partial: "destination_card", locals: {title:"Yosemite"}
-        %br
         %br
 %header.featured-header
   .featured-trail-container

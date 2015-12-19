@@ -1,0 +1,48 @@
+/ Page Header
+/ Set your background image for this header on the line below.
+%header.intro-header{:style => "background-image: url('/assets/photos/tahoe.jpg')"}
+  .container
+    .row
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+        .destination-heading
+          %h1.text-center
+            Sacramento to
+            %br
+            South Lake Tahoe
+/ Main Content
+.container
+  .row
+    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+      .destination-heading
+        = image_tag "/assets/placeholders/destination_profile.png", class: "destination-image"
+        .destination-blurb
+          .lead
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+          .lead
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        .clearfix
+
+.additional-info-container
+  .container
+    .row
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+        %h4 Additional Info
+.container
+  .row
+    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+      %h3
+        Getting to South Lake Tahoe
+      .lead
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+      .lead
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+      .lead
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+
+.blue-container
+  .container
+    .row
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+        %h4 Top Transit Accessible Activities
+- 10.times do
+  = render partial: "/pages/activity"

@@ -1,0 +1,55 @@
+/ Page Header
+/ Set your background image for this header on the line below.
+%header.intro-header{:style => "background-image: url('/assets/photos/yosemite_unsplash.jpg')"}
+  .container
+    .row
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+        .site-heading
+          %h1.text-left
+            CarLess
+            %br
+            California
+/ Main Content
+.container
+  .row
+    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+      .site-welcome
+        %h2
+          Hello!
+        .lead
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inven- tore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        %br
+      .row.destination-cards
+        .col-lg-5.col-lg-offset-1
+          = link_to page_path(id: 'south_lake_tahoe') do
+            .south-lake-tahoe
+              = render partial: "destination_card", locals: {title:"South Lake Tahoe"}
+        .col-lg-5
+          = link_to page_path(id: 'yosemite') do
+            .yosemite
+              = render partial: "destination_card", locals: {title:"Yosemite"}
+        %br
+        %br
+%header.featured-header
+  .featured-trail-container
+    .container
+      .row
+        .col-lg-7.col-lg-offset-1.col-md-7.col-md-offset-1
+          .featured-trail-cta
+            %h4
+              Featured Trail
+            .lead
+              Rem aperiam, eaque ipsa queae ab illo inventore veritatis et quasi rem aperiam.
+        .col-lg-3.col-md-3
+          .featured-trail-button
+            Check it out
+
+.container
+  .row
+    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+      .partners
+        %h3
+          Partners
+        %br
+        = image_tag '/assets/placeholders/partners.png'
+        %br

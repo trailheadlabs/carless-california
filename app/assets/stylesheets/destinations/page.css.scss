@@ -1,0 +1,58 @@
+@import 'variables';
+
+.destination-image{
+  float:left;
+  margin: 0px 20px 10px 0px;
+  width:300px;
+}
+@media only screen and (max-width: 768px) {
+  .destination-image{
+    float:none;
+    display: block;
+    width:150px;
+  }
+}
+.destination-heading{
+  margin-top:40px;
+  margin-bottom:30px;
+  clear:both;
+}
+
+.additional-info-container{
+  background-color: $lightGrey;
+  padding: 20px 0px;
+}
+
+.blue-container{
+  background-color: $blue;
+  padding: 20px 0px;
+  h4{
+    color: white;
+  }
+}
+
+.activity:nth-child(even){
+  background-color: $lightGrey;
+}
+
+.activity{
+  .activity-heading{
+    padding: 20px 0px;
+  }
+  .activity-cta{
+    cursor: pointer;
+    text-align: center;
+    font-size: 27px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $blue;
+    padding: 18px 18px;
+    border: solid 3px $blue;
+    &:hover{
+      background-color: rgba(30, 30, 30, 0.2);
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+}
