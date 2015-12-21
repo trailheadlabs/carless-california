@@ -1,0 +1,12 @@
+@import "variables";
+
+.trip-details{
+  color: white;
+  background-color: $blue;
+  h1,h2,h3,h4,h5, lead{
+    color: white;
+  }
+  .trailheads,.stats{
+    margin-bottom:30px;
+  }
+}

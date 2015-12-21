@@ -2,8 +2,12 @@
 
 .destination-image{
   float:left;
+  display: table-cell;
   margin: 0px 20px 10px 0px;
   width:300px;
+}
+.destination-blurb{
+  display: table-cell;
 }
 .destination-heading{
   margin-top:40px;
@@ -16,6 +20,9 @@
   padding: 20px 0px;
 }
 
+.additional-information-content{
+  margin-bottom: 30px;
+}
 .blue-container{
   background-color: $blue;
   padding: 20px 0px;
@@ -42,9 +49,11 @@
 
 @media only screen and (max-width: 768px) {
   .destination-image{
-    float:none;
     display: block;
-    width:150px;
+    width: 100%;
+    clear:both;
+    margin-bottom: 10px;
+
   }
 
 }

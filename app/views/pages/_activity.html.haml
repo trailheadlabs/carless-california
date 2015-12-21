@@ -6,7 +6,7 @@
           .col-md-7
             %h4
               Bay View Loop Trail
-          .col-md-5
+          .col-md-5.hidden-sm.hidden-xs
             .cta-btn-dark
               Check it out
         .row
@@ -17,3 +17,12 @@
               This trail is great for bird spotting and a light to moderate workout for anyone who is seeking...
       .col-md-4
         = image_tag "/assets/placeholders/destination_profile.png"
+    .row.visible-sm.visible-xs
+      .col-xs-12
+        .cta-btn-dark.padded
+          Check it out
+.trip-details
+  .container
+    .row
+      .col-md-12
+        = render partial: "/pages/trip_details"
