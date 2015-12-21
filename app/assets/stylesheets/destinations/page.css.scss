@@ -35,6 +35,10 @@
   background-color: $lightGrey;
 }
 
+.activity-box:nth-child(even){
+  background-color: $lightGrey;
+}
+
 .activity{
   strong{
     font-size:27px;
@@ -47,6 +51,11 @@
   }
 }
 
+.activity-box{
+  .trip-details{
+    display:none;
+  }
+}
 @media only screen and (max-width: 768px) {
   .destination-image{
     display: block;

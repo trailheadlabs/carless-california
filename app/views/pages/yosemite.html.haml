@@ -35,5 +35,5 @@
     .row
       .col-md-12
         %h4 Top Transit Accessible Activities
-- 10.times do
-  = render partial: "/pages/activity"
+- 10.times do |i|
+  = render partial: "/pages/activity", locals:{trip_id:i}

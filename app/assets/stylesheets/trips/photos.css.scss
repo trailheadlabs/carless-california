@@ -1,0 +1,24 @@
+@import 'variables';
+
+.trip-photos{
+  background-color: $blue;
+  color: black;
+  padding-bottom: 30px;
+  .trip-photo-thumbnail{
+    cursor: pointer;
+    background-color: $lightGrey;
+    border: solid 3px $blue;
+    img{
+      border: solid 3px white;
+    }
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+  .trip-photo-gallery{
+    border: solid 3px $blue;
+    img{
+      border: solid 3px white;
+    }
+  }
+}
