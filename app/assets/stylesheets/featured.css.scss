@@ -35,26 +35,3 @@
   right: 0;
   background-color:$blueBackdrop;
 }
-
-.featured-trail-cta{
-
-}
-
-.featured-trail-button{
-  margin-top: 10px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 27px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: white;
-  padding: 18px 18px;
-  border: solid 3px white;
-  &:hover{
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  @media only screen and (max-width: 768px) {
-    font-size: 20px;
-  }
-
-}

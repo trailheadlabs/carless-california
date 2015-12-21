@@ -37,6 +37,7 @@ h3{
   font-size:40px;
   font-weight:300;
   color:$blue;
+  margin: 30px 0px;
 }
 h4{
   font-size:27px;
@@ -47,15 +48,36 @@ h4{
 .lead{
   font-size: 27px;
 }
+.beefy{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.dark{
+  color: $blue;
+}
+.cost-bullet{
+  .cost{
+    margin-right: 30px;
+  }
+}
+.cost-hr{
+  border-top: 2px solid black;
+  width: 50%;
+}
+
 @media only screen and (max-width: 768px) {
   h2{
     font-size:40px;
   }
   h3{
     font-size: 30px;
+    margin: 20px 0px;
   }
   h4{
     font-size: 20px;
+  }
+  .lead{
+    font-size: 22px;
   }
 }
 
@@ -102,6 +124,67 @@ hr.small {
   display: block;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+
+.cta-btn {
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 27px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  padding: 18px 18px;
+  border: solid 3px white;
+  &:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.cta-btn-dark{
+  cursor: pointer;
+  text-align: center;
+  font-size: 27px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $blue;
+  padding: 18px 18px;
+  border: solid 3px $blue;
+  &:hover{
+    background-color: $blueHover;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.info-bullet {
+  margin-bottom:30px;
+  .circulabel, .lead {
+    display:table-cell;
+  }
+
+
+}
+.circulabel{
+  width: 40px;
+  height: 40px;
+  background-color: $blue;
+  color:white;
+  font-size: 27px;
+  border-radius: 20px;
+  float:left;
+  font-weight:700;
+  text-align:center;
+
+}
+
+.circulabel-bullet{
+  margin-right:30px;
+  margin-top: 6px;
 }
 
 .btn {
