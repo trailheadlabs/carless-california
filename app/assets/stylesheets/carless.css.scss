@@ -137,6 +137,7 @@ hr.small {
 }
 
 .cta-btn {
+  display: block;
   margin-top: 10px;
   cursor: pointer;
   text-align: center;
@@ -148,6 +149,8 @@ hr.small {
   border: solid 3px white;
   &:hover{
     background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    color:white;
   }
   @media only screen and (max-width: 768px) {
     font-size: 20px;

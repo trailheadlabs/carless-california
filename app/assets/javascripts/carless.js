@@ -15,6 +15,7 @@ var CarLess = (function(CarLess){
     $('body').on('click','.layer-toolbar-close-btn',closeLayerToolbar);
     $('body').on('click','.layer-item',toggleLayer);
     $('body').on('click','.additional-info-container',toggleAdditionalInfo);
+    console.log(window.location.search);
   }
 
   function zoomIn(event){
@@ -33,6 +34,20 @@ var CarLess = (function(CarLess){
 
   function checkItOut(event){
     var _activityBox = $(this).closest('.activity-box');
+    showTripDetails(_activityBox);
+    return false;
+  }
+
+  function loadTripDetails(tripId){
+    var _activityBox = $($('.activity-box').filter(function(){
+      return $(this).data('trip-id') == tripId.toString();
+    })[0]);
+    showTripDetails(_activityBox);
+    return false;
+
+  }
+
+  function showTripDetails(_activityBox){
     var _tripDetails = _activityBox.find('.trip-details')
     var _id = _activityBox.data('trip-id');
     if(_currentTrip){
@@ -45,7 +60,6 @@ var CarLess = (function(CarLess){
       }, 400);
     });
     _currentTrip = _tripDetails;
-    return false;
   }
 
   function loadTripMap(tripId){
@@ -57,7 +71,7 @@ var CarLess = (function(CarLess){
         zoomControl: false
       }
       var _map = L.mapbox.map(_element, 'trailheadlabs.63dd9d04',_mapOptions);
-      _map.setView([43,-111],15);
+      _map.setView([43,-111],10);
       _loadedMaps[tripId] = _map;
     }
   }
@@ -88,6 +102,7 @@ var CarLess = (function(CarLess){
 
   CarLess.init = init;
   CarLess.loadTripMap = loadTripMap;
+  CarLess.loadTripDetails = loadTripDetails;
 
   return CarLess;
 

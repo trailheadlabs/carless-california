@@ -44,3 +44,7 @@
         %h4 Top Transit Accessible Activities
 - 10.times do |i|
   = render partial: "/pages/activity", locals:{trip_id:i}
+
+- if _trip_id = params[:trip_id].presence
+  :javascript
+    CarLess.loadTripDetails(#{_trip_id});
