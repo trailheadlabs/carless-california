@@ -3,7 +3,7 @@
 
 / Page Header
 / Set your background image for this header on the line below.
-%header.intro-header{:style => "background-image: url('/assets/photos/yosemite.jpg')"}
+%header.intro-header{:style => "background-image: url('#{image_path("photos/yosemite.jpg")}')"}
   .container
     .row
       .col-md-12
@@ -43,7 +43,7 @@
   .row
     .col-md-12
       .destination-heading
-        = image_tag "/assets/placeholders/destination_profile.png", class: "destination-image"
+        = image_tag "placeholders/destination_profile.png", class: "destination-image"
         .destination-blurb
           .lead
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.

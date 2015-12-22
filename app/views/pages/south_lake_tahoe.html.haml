@@ -1,7 +1,7 @@
 - orig_from = params[:from] || 'san_francisco'
 - from = orig_from.gsub(/_/,' ').titleize
 / Set your background image for this header on the line below.
-%header.intro-header{:style => "background-image: url('/assets/photos/tahoe.jpg')"}
+%header.intro-header{:style => "background-image: url('#{image_path("photos/tahoe.jpg")}')"}
   .container
     .row
       .col-md-12
@@ -42,7 +42,7 @@
   .row
     .col-md-12
       .destination-heading
-        = image_tag "/assets/placeholders/destination_profile.png", class: "destination-image"
+        = image_tag "placeholders/destination_profile.png", class: "destination-image"
         .destination-blurb
           .lead
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
