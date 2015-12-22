@@ -83,12 +83,18 @@
     $('.from-select').on('mouseleave',function(){
       $('.from-select .unselected-items').slideUp(200);
     });
+    $('.from-select').on('click',function(){
+      $('.from-select .unselected-items').slideToggle(200);
+    });
 
     $('.to-select .selected-item').on('mouseenter',function(){
       $('.to-select .unselected-items').slideDown(200);
     });
     $('.to-select').on('mouseleave',function(){
       $('.to-select .unselected-items').slideUp(200);
+    });
+    $('.to-select').on('click',function(){
+      $('.to-select .unselected-items').slideToggle(200);
     });
 
   });
