@@ -55,4 +55,5 @@ window.analytics.load('nesW3ErVeQURJUZ6O9F6cY3uoXbuF1xv');
 // accommodate Turbolinks and make the first page call to load the integrations.
 $(document).on('ready page:change', function() {
   window.analytics.page();
+  CarLess.init();
 })

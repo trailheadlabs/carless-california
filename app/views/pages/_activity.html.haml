@@ -6,7 +6,7 @@
           .row.activity-heading
             .col-md-7
               %h4
-                Bay View Loop Trail
+                Bay View Loop Trail #{trip_id}
             .col-md-5.hidden-sm.hidden-xs
               .cta-btn-dark.check-it-out-button
                 Check it out
@@ -26,7 +26,7 @@
     .container.trip-details-container
       .row
         .col-md-12
-          = render partial: "/pages/trip_details"
+          = render partial: "/pages/trip_details",locals:{trip_id:trip_id}
     .trip-photos
       .container
         .row

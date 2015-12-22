@@ -16,13 +16,36 @@
 }
 
 .additional-info-container{
+  cursor:pointer;
   background-color: $lightGrey;
   padding: 20px 0px;
+  &:hover{
+    background-color: $lightGreyHover;
+  }
 }
 
 .additional-information-content{
   margin-bottom: 30px;
+  display:none;
 }
+
+.additional-info-container {
+  .open-btn{
+    display:block;
+  }
+  .close-btn{
+    display:none;
+  }
+}
+.additional-info-container.open {
+  .open-btn{
+    display:none;
+  }
+  .close-btn{
+    display:block;
+  }
+}
+
 .blue-container{
   background-color: $blue;
   padding: 20px 0px;

@@ -1,4 +1,5 @@
-/ Page Header
+- from = params[:from] || 'San Francisco'
+- from = from.gsub(/_/,' ').titleize
 / Set your background image for this header on the line below.
 %header.intro-header{:style => "background-image: url('/assets/photos/tahoe.jpg')"}
   .container
@@ -6,7 +7,7 @@
       .col-md-12
         .destination-heading
           %h1.text-center
-            Sacramento to
+            #{from} to
             %br
             South Lake Tahoe
 / Main Content
@@ -25,24 +26,20 @@
 .additional-info-container
   .container
     .row
-      .col-md-12
+      .col-xs-8
         %h4 Additional Info
-.container
-  .row
-    .col-md-12
-      %h3
-        Getting to South Lake Tahoe
-      .lead
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-      .lead
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-      .lead
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+      .col-xs-4
+        .circulabel.pull-right.open-btn
+          %i.fa.fa-plus
+        .circulabel.pull-right.close-btn
+          %i.fa.fa-minus
+
+= render partial: "/pages/tahoe_additional_info", locals:{from:from}
 
 .blue-container
   .container
     .row
       .col-md-12
         %h4 Top Transit Accessible Activities
-- 10.times do
-  = render partial: "/pages/activity"
+- 10.times do |i|
+  = render partial: "/pages/activity", locals:{trip_id:i}

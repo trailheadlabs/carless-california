@@ -1,3 +1,6 @@
+- from = params[:from] || 'San Francisco'
+- from = from.gsub(/_/,' ').titleize
+
 / Page Header
 / Set your background image for this header on the line below.
 %header.intro-header{:style => "background-image: url('/assets/photos/yosemite.jpg')"}
@@ -6,7 +9,7 @@
       .col-md-12
         .destination-heading
           %h1.text-center
-            Sacramento to
+            #{from} to
             %br
             Yosemite
 .container
@@ -27,9 +30,13 @@
       .col-xs-8
         %h4 Additional Info
       .col-xs-4
-        .circulabel.pull-right
-          +
-= render partial: "/pages/yosemite_additional_info"
+        .circulabel.pull-right.open-btn
+          %i.fa.fa-plus
+        .circulabel.pull-right.close-btn
+          %i.fa.fa-minus
+
+= render partial: "/pages/yosemite_additional_info", locals:{from:from}
+
 .blue-container
   .container
     .row

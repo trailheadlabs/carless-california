@@ -21,11 +21,11 @@
         %br
       .row.destination-cards
         .col-md-5.col-md-offset-1
-          = link_to page_path(id: 'south_lake_tahoe') do
+          = link_to to_path(id: 'south_lake_tahoe') do
             .south-lake-tahoe
               = render partial: "destination_card", locals: {title:"South Lake Tahoe"}
         .col-md-5
-          = link_to page_path(id: 'yosemite') do
+          = link_to to_path(id: 'yosemite') do
             .yosemite
               = render partial: "destination_card", locals: {title:"Yosemite"}
         %br

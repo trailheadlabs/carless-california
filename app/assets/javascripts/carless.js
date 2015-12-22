@@ -14,6 +14,7 @@ var CarLess = (function(CarLess){
     $('body').on('click','.layer-toolbar-btn',openLayerToolbar);
     $('body').on('click','.layer-toolbar-close-btn',closeLayerToolbar);
     $('body').on('click','.layer-item',toggleLayer);
+    $('body').on('click','.additional-info-container',toggleAdditionalInfo);
   }
 
   function zoomIn(event){
@@ -64,16 +65,25 @@ var CarLess = (function(CarLess){
   function openLayerToolbar(event){
     var _activityBox = $(this).closest('.activity-box');
     _activityBox.find('.layer-toolbar').fadeIn(400);
+    return false;
   }
 
   function closeLayerToolbar(event){
     var _activityBox = $(this).closest('.activity-box');
     var _id = _activityBox.data('trip-id');
     var _toolbar = _activityBox.find('.layer-toolbar').fadeOut(400);
+    return false;
   }
 
   function toggleLayer(event){
     $(this).find('.indicator').toggleClass('selected');
+    return false
+  }
+
+  function toggleAdditionalInfo(event){
+    $('.container.additional-information-content').slideToggle();
+    $('.additional-info-container').toggleClass('open');
+    return false;
   }
 
   CarLess.init = init;
