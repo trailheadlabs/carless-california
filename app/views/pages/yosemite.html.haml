@@ -1,5 +1,5 @@
-- from = params[:from] || 'San Francisco'
-- from = from.gsub(/_/,' ').titleize
+- orig_from = params[:from] || 'san_francisco'
+- from = orig_from.gsub(/_/,' ').titleize
 
 / Page Header
 / Set your background image for this header on the line below.
@@ -12,6 +12,33 @@
             #{from} to
             %br
             Yosemite
+    .row
+      .col-md-4.col-md-offset-2
+        .from-select
+          .item.selected-item
+            from #{from}
+            .pull-right
+              %i.fa.fa-caret-down
+          .unselected-items
+            - if orig_from == "san_francisco"
+              = link_to "/to/yosemite/from/sacramento" do
+                .item.unselected-item
+                  from Sacramento
+            - else
+              = link_to "/to/yosemite/from/san_francisco" do
+                .item.unselected-item
+                  from San Francisco
+      .col-md-4
+        .to-select
+          .item.selected-item
+            to Yosemite
+            .pull-right
+              %i.fa.fa-caret-down
+          .unselected-items
+            = link_to "/to/south_lake_tahoe/from/#{orig_from}" do
+              .item.unselectd-item
+                to South Lake Tahoe
+
 .container
   .row
     .col-md-12
@@ -43,8 +70,26 @@
       .col-md-12
         %h4 Top Transit Accessible Activities
 - 10.times do |i|
-  = render partial: "/pages/activity", locals:{trip_id:i}
+  = render partial: "/pages/activity", locals:{trip_id:i,trip:{}}
 
 - if _trip_id = params[:trip_id].presence
   :javascript
     CarLess.loadTripDetails(#{_trip_id});
+
+:javascript
+  $(function(){
+    $('.from-select .selected-item').on('mouseenter',function(){
+      $('.from-select .unselected-items').slideDown(200);
+    });
+    $('.from-select').on('mouseleave',function(){
+      $('.from-select .unselected-items').slideUp(200);
+    });
+
+    $('.to-select .selected-item').on('mouseenter',function(){
+      $('.to-select .unselected-items').slideDown(200);
+    });
+    $('.to-select').on('mouseleave',function(){
+      $('.to-select .unselected-items').slideUp(200);
+    });
+
+  });

@@ -79,6 +79,21 @@
     display:none;
   }
 }
+
+.from-select, .to-select{
+  height:140px;
+  cursor:pointer;
+  .item {
+    background-color:white;
+    border: solid 1px $lightGrey;
+    padding: 10px 20px;
+    margin-bottom:4px;
+  }
+  .unselected-items{
+    display:none;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .destination-image{
     display: block;
@@ -87,5 +102,4 @@
     margin-bottom: 10px;
 
   }
-
 }
