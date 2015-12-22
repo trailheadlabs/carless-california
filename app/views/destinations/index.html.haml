@@ -30,20 +30,7 @@
               = render partial: "destination_card", locals: {title:"Yosemite"}
         %br
         %br
-%header.featured-header
-  .featured-trail-container
-    .container
-      .row
-        .col-lg-7.col-lg-offset-1.col-md-7.col-md-offset-1
-          .featured-trail-cta
-            %h4
-              Bayview Trail Loop
-            .lead
-              Great hike with great views of Emerald Bay, Lake Tahoe, and Desolation Wilderness!
-        .col-lg-3.col-md-3
-          %a.cta-btn(href="/to/south_lake_tahoe")
-            Check it out
-
+#featured-trip
 .container
   .row
     .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
@@ -53,3 +40,8 @@
         %br
         = image_tag '/assets/placeholders/partners.png'
         %br
+
+:javascript
+  $(function(){
+    $('#featured-trip').load('/index/featured_trip');
+  })
