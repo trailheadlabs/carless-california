@@ -1,4 +1,4 @@
-.activity-box
+.activity-box(data-trip-id="#{trip_id}")
   .activity
     .container
       .row
@@ -32,3 +32,4 @@
         .row
           .col-md-12
             = render partial: "/pages/trip_photos",locals:{trip_id:trip_id}
+    = render partial: "/pages/trip_map",locals:{trip_id:trip_id}

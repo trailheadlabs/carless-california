@@ -1,0 +1,73 @@
+- map_id = "trip_map_#{trip_id}"
+.trip-map
+  .map-box
+    .map-container(id="#{map_id}")
+    #map-toolbar
+      .map-toolbar-btn.layer-toolbar-btn
+        .lead.beefy
+          L
+      .map-toolbar-btn.zoom-in-btn
+        .lead.beefy
+          %i.fa.fa-plus
+      .map-toolbar-btn.zoom-out-btn
+        .lead.beefy
+          %i.fa.fa-minus
+    .layer-toolbar
+      .layer-header
+        %span.lead.beefy Select Layers
+        .pull-right
+          .lead.beefy
+            %i.fa.fa-close.layer-toolbar-close-btn
+      .layer-item.photos
+        .icon
+        .label
+          Photos
+        .indicator
+          %i.fa.fa-square-o.unchecked
+          %i.fa.fa-check-square-o.checked
+      .layer-item.transit
+        .icon
+        .label
+          Transit
+        .indicator
+          %i.fa.fa-square-o.unchecked
+          %i.fa.fa-check-square-o.checked
+      .layer-item.campground
+        .icon
+        .label
+          Campgrounds
+        .indicator
+          %i.fa.fa-square-o.unchecked
+          %i.fa.fa-check-square-o.checked
+      .layer-item.water
+        .icon
+        .label
+          Water/Bathroom
+        .indicator
+          %i.fa.fa-square-o.unchecked
+          %i.fa.fa-check-square-o.checked
+      .layer-item.lodging
+        .icon
+        .label
+          Lodging
+        .indicator
+          %i.fa.fa-square-o.unchecked
+          %i.fa.fa-check-square-o.checked
+      .layer-item.food
+        .icon
+        .label
+          Food
+        .indicator
+          %i.fa.fa-square-o.unchecked
+          %i.fa.fa-check-square-o.checked
+
+  .clearfix
+  .map-layers
+    .row
+      .col-md-6.col-md-offset-6
+        .text-center
+          = link_to "Terrain", "#"
+          \|
+          = link_to "Topo", "#"
+          \|
+          = link_to "Satellite", "#"

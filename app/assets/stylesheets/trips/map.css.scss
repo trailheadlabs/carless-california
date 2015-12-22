@@ -1,0 +1,128 @@
+@import 'variables';
+
+.trip-map{
+  background-color: $darkGrey;
+  .map-box{
+    position:relative;
+  }
+  .map-container{
+    height:600px;
+    width: 100%;
+  }
+  .layer-toolbar-close-btn{
+    cursor:pointer;
+    &:hover{
+      color: $lightGrey;
+    }
+  }
+
+  #map-toolbar{
+    height: 100%;
+    padding:10px;
+    color:white;
+    font-size:27px;
+    font-weight:700;
+    position:absolute;
+    z-index: 9000;
+    left:0;
+    top:0;
+    width:30px;
+    .map-toolbar-btn{
+      cursor:pointer;
+      width:45px;
+      height:45px;
+      padding:10px;
+      text-align: center;
+      background-color: $darkGrey;
+      line-height:27px;
+      margin-bottom:10px;
+      color:white;
+      .lead{
+        line-height:27px;
+      }
+      &:hover{
+        background-color: $darkGreyHover;
+      }
+    }
+  }
+
+  .layer-toolbar{
+    position: absolute;
+    z-index: 10000;
+    left:65px;
+    top:10px;
+    bottom:10px;
+    width:300px;
+    background-color: $darkGrey;
+    padding:20px;
+  }
+  .layer-header{
+    margin-bottom:20px;
+  }
+  .layer-item{
+    clear:both;
+    margin-bottom:10px;
+    cursor:pointer;
+    padding:10px;
+    .icon{
+      width:25px;
+      height:25px;
+      border-radius:15px;
+      background-color: $blue;
+      float:left;
+    }
+    .label{
+      font-weight:300;
+      font-size:20px;
+    }
+    .indicator{
+      float:right;
+      width:30px;
+      height:30px;
+      text-align: left;
+      line-height: 20px;
+      padding: 5px;
+      font-size: 20px;
+      .checked{
+        display:none;
+      }
+    }
+    .indicator.selected{
+      .checked{
+        display:block;
+      }
+      .unchecked{
+        display:none;
+      }
+    }
+    &:hover{
+      background-color: $darkGreyHover;
+    }
+  }
+
+  .photos .icon{
+    background-color: $photos;
+  }
+  .transit .icon{
+    background-color: $transit;
+  }
+  .campground .icon{
+    background-color: $campground;
+  }
+  .water .icon{
+    background-color: $water;
+  }
+  .food .icon{
+    background-color: $food;
+  }
+  .lodging .icon{
+    background-color: $lodging;
+  }
+
+  .map-layers{
+    padding: 20px;
+    a{
+      color:white;
+    }
+  }
+}
