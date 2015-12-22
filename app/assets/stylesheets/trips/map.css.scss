@@ -47,6 +47,7 @@
   }
 
   .layer-toolbar{
+    display:none;
     position: absolute;
     z-index: 10000;
     left:65px;
@@ -99,7 +100,7 @@
       background-color: $darkGreyHover;
     }
   }
-    
+
   .photos .icon{
     background-color: $photos;
   }
