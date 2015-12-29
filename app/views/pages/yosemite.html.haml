@@ -35,9 +35,15 @@
             .pull-right
               %i.fa.fa-caret-down
           .unselected-items
-            = link_to "/to/south_lake_tahoe/from/#{orig_from}" do
-              .item.unselectd-item
-                to South Lake Tahoe
+            - if orig_from == "central_valley"
+              = link_to "/to/south_lake_tahoe/from/sacramento" do
+                .item.unselectd-item
+                  to South Lake Tahoe
+            - else
+              = link_to "/to/south_lake_tahoe/from/#{orig_from}" do
+                .item.unselectd-item
+                  to South Lake Tahoe
+
 
 .container
   .row
