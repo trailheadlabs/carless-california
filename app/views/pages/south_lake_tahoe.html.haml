@@ -33,9 +33,15 @@
             .pull-right
               %i.fa.fa-caret-down
           .unselected-items
-            = link_to "/to/yosemite/from/#{orig_from}" do
-              .item.unselectd-item
-                to Yosemite
+            - if orig_from == 'san_francisco'
+              = link_to "/to/yosemite/from/#{orig_from}" do
+                .item.unselectd-item
+                  to Yosemite
+            - else
+              = link_to "/to/yosemite/from/central_valley" do
+                .item.unselectd-item
+                  to Yosemite
+
 
 / Main Content
 .container
