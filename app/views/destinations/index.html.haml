@@ -31,16 +31,7 @@
         %br
         %br
 #featured-trip
-.container
-  .row
-    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
-      .partners
-        %h3
-          Partners
-        %br
-        = image_tag '/assets/placeholders/partners.png'
-        %br
-
+= render partial: 'partners'
 :javascript
   $(function(){
     $('#featured-trip').load('/index/featured_trip');
