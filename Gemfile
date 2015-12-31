@@ -20,6 +20,9 @@ gem 'pg'
 gem 'puma'
 gem 'simple_form'
 gem 'font-awesome-sass'
+gem 'underscore-rails'
+gem 'newrelic_rpm'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

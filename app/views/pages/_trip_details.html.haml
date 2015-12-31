@@ -1,18 +1,18 @@
 %h3
-  Bay View Trail Loop #{trip_id}
+  = trip['name']
 .lead.description
-  This trail is great for bird spotting and a light to moderate workout for anyone who is seeking Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+  = trip['description']
 .trailheads
   .start
     %span.lead.beefy
       Start
     %span.lead
-      Bay View Trail Head
+      = trip['starting_trailhead']['name']
   .end
     %span.lead.beefy
       End
     %span.lead
-      Sparrow Mountain Trailhead
+      = trip['ending_trailhead']['name']
 .stats
   .row
     .col-sm-3

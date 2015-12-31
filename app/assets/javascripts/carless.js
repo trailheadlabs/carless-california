@@ -2,6 +2,7 @@
 
 var CarLess = (function(CarLess){
   var _featuredTripId = 1;
+  var _osTrips;
   var _tripIds = [];
   var _currentTripId;
   var _currentTripDetails;
@@ -61,6 +62,10 @@ var CarLess = (function(CarLess){
     return false;
   }
 
+  function fetchTrip(tripId,done){
+    $.getJSON('https://api.outerspatial.com/trips/' + tripId + '.json?expand=true',done);
+  }
+
   function loadTripDetails(tripId){
     var _activityBox = $($('.activity-box').filter(function(){
       return $(this).data('trip-id') == tripId.toString();
@@ -84,6 +89,41 @@ var CarLess = (function(CarLess){
       }, 400);
     });
     _currentTripDetails = _tripDetails;
+  }
+
+  function initDestinationPage(destination){
+    $('.from-select .selected-item').on('mouseenter',function(){
+      $('.from-select .unselected-items').slideDown(200);
+    });
+    $('.from-select').on('mouseleave',function(){
+      $('.from-select .unselected-items').slideUp(200);
+    });
+    $('.from-select').on('click',function(){
+      $('.from-select .unselected-items').slideToggle(200);
+    });
+
+    $('.to-select .selected-item').on('mouseenter',function(){
+      $('.to-select .unselected-items').slideDown(200);
+    });
+    $('.to-select').on('mouseleave',function(){
+      $('.to-select .unselected-items').slideUp(200);
+    });
+    $('.to-select').on('click',function(){
+      $('.to-select .unselected-items').slideToggle(200);
+    });
+    loadTrips(destination);
+    $('#activities-content').load('/destinations/activities/yosemite');
+  }
+
+  function loadTrips(destination){
+    $.getJSON('/destinations/trip_ids.json',function(data){
+      _osTrips = data;
+      _.each(_osTrips[destination],function(id){
+        fetchTrip(id,function(tripData){
+          console.log(tripData['name']);
+        })
+      });
+    })
   }
 
   function loadTripMap(tripId){
@@ -134,6 +174,7 @@ var CarLess = (function(CarLess){
   CarLess.init = init;
   CarLess.loadTripMap = loadTripMap;
   CarLess.loadTripDetails = loadTripDetails;
+  CarLess.initDestinationPage = initDestinationPage;
 
   return CarLess;
 
