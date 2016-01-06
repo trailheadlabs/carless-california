@@ -4,14 +4,30 @@ class DestinationsController < ApplicationController
     @trip_ids = [1250]
     @trips = []
     @trip_ids.each do |id|
-      trip = JSON.load(open("http://api.outerspatial.com/v0/trips/#{id}.json"))
-      photos = JSON.load(open("http://api.outerspatial.com/v0/trips/#{id}/images.json"))
+      trip = Rails.cache.fetch(['trip',id], expires_in: 600) do
+        JSON.load(open("http://api.outerspatial.com/v0/trips/#{id}.json"))
+      end
+      photos = Rails.cache.fetch(['trip',id,'photos'], expires_in: 600) do
+        JSON.load(open("http://api.outerspatial.com/v0/trips/#{id}/images.json"))
+      end
       trip['photos'] = photos
-      trip['starting_trailhead'] = JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['starting_trailhead_id']}.json"))
-      trip['ending_trailhead'] = JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['ending_trailhead_id']}.json"))
+      trip['starting_trailhead'] = Rails.cache.fetch(['trailhead',id],expires_in:600) do
+        JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['starting_trailhead_id']}.json"))
+      end
+      trip['ending_trailhead'] = Rails.cache.fetch(['trailhead',id],expires_in:600) do
+        JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['ending_trailhead_id']}.json"))
+      end
       @trips << trip
     end
-    render layout: false
+    respond_to do |format|
+      format.html do
+        render layout: false
+      end
+      format.json do
+        render json: @trips
+      end
+    end
+
   end
 
   def south_lake_tahoe

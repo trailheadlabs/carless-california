@@ -2,13 +2,23 @@
 
 var CarLess = (function(CarLess){
   var _featuredTripId = 1;
-  var _osTrips;
   var _tripIds = [];
   var _currentTripId;
   var _currentTripDetails;
+  var _allTripMap = {};
   var _loadedMaps = {};
   var _baseMaps = {};
+  var _overLays = {};
   var _map;
+  var  _trailStyle = {
+      stroke: true,
+      color: "#3E6D92",
+      opacity: 1.0,
+      weight: 5,
+      lineCap: 'round',
+      dashArray: "6,10"
+    };
+
 
 
   function init(){
@@ -22,7 +32,6 @@ var CarLess = (function(CarLess){
     $('body').on('click','.basemap-btn',setBasemap);
     $('body').on('click','.layer-item',toggleLayer);
     $('body').on('click','.additional-info-container',toggleAdditionalInfo);
-    console.log(window.location.search);
   }
 
   function initBasemaps(){
@@ -40,6 +49,10 @@ var CarLess = (function(CarLess){
       _map.addLayer(layer);
     }
     return false;
+  }
+
+  function tripData(){
+    return _allTripMap;
   }
 
   function zoomIn(event){
@@ -72,7 +85,6 @@ var CarLess = (function(CarLess){
     })[0]);
     showTripDetails(_activityBox);
     return false;
-
   }
 
   function showTripDetails(_activityBox){
@@ -111,33 +123,35 @@ var CarLess = (function(CarLess){
     $('.to-select').on('click',function(){
       $('.to-select .unselected-items').slideToggle(200);
     });
-    loadTrips(destination);
     $('#activities-content').load('/destinations/activities/yosemite');
-  }
-
-  function loadTrips(destination){
-    $.getJSON('/destinations/trip_ids.json',function(data){
-      _osTrips = data;
-      _.each(_osTrips[destination],function(id){
-        fetchTrip(id,function(tripData){
-          console.log(tripData['name']);
-        })
-      });
-    })
+    $.getJSON('/destinations/activities/yosemite.json',function(data){
+      _.each(data,function(item){
+        _allTripMap[item['id']] = item;
+      })
+    });
   }
 
   function loadTripMap(tripId){
     if(!_loadedMaps[tripId]){
-      var _element = 'trip_map_' + tripId;
-      // Create a map in the div #map
-      var _mapOptions = {
-        scrollWheelZoom: false,
-        zoomControl: false
-      }
-      _map = L.mapbox.map(_element, 'trailheadlabs.63dd9d04',_mapOptions);
-      _map.setView([43,-111],10);
+      _map = buildTripMap(tripId);
       _loadedMaps[tripId] = _map;
     }
+  }
+
+  function buildTripMap(tripId){
+    var _element = 'trip_map_' + tripId;
+    // Create a map in the div #map
+    var _mapOptions = {
+      scrollWheelZoom: false,
+      zoomControl: false
+    }
+    var _map = L.mapbox.map(_element, 'trailheadlabs.63dd9d04',_mapOptions);
+    var _route = L.geoJson(_allTripMap[tripId].geometry,{
+      style: _trailStyle
+    }).addTo(_map);
+    _map.fitBounds(_route.getBounds());
+    // _map.setView([43,-111],10);
+    return _map;
   }
 
   function openLayerToolbar(event){
@@ -173,6 +187,7 @@ var CarLess = (function(CarLess){
 
   CarLess.init = init;
   CarLess.loadTripMap = loadTripMap;
+  CarLess.tripData = tripData;
   CarLess.loadTripDetails = loadTripDetails;
   CarLess.initDestinationPage = initDestinationPage;
 
