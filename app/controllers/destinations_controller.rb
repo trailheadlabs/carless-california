@@ -11,10 +11,10 @@ class DestinationsController < ApplicationController
         JSON.load(open("http://api.outerspatial.com/v0/trips/#{id}/images.json"))
       end
       trip['photos'] = photos
-      trip['starting_trailhead'] = Rails.cache.fetch(['trailhead',id],expires_in:600) do
+      trip['starting_trailhead'] = Rails.cache.fetch(['trailhead',trip['starting_trailhead_id']],expires_in:600) do
         JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['starting_trailhead_id']}.json"))
       end
-      trip['ending_trailhead'] = Rails.cache.fetch(['trailhead',id],expires_in:600) do
+      trip['ending_trailhead'] = Rails.cache.fetch(['trailhead',trip['starting_ending_id']],expires_in:600) do
         JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['ending_trailhead_id']}.json"))
       end
       @trips << trip

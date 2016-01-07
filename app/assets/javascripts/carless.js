@@ -18,13 +18,23 @@ var CarLess = (function(CarLess){
       lineCap: 'round',
       dashArray: "6,10"
     };
-
+  var _startStyle = {
+      "marker-color": "#129623",
+      weight: 5,
+      opacity: 1.0
+  };
+  var _endStyle = {
+      "marker-color": "#961212",
+      weight: 5,
+      opacity: 1.0
+  };
 
 
   function init(){
     L.mapbox.accessToken = 'pk.eyJ1IjoidHJhaWxoZWFkbGFicyIsImEiOiJzN29LeEU4In0.3tl1HARqdU8DYUPq064kyw';
     initBasemaps();
     $('body').on('click','.check-it-out-button',checkItOut);
+    $('body').on('click','.get-directions-btn',launchDirections);
     $('body').on('click','.zoom-in-btn',zoomIn);
     $('body').on('click','.zoom-out-btn',zoomOut);
     $('body').on('click','.layer-toolbar-btn',openLayerToolbar);
@@ -53,6 +63,32 @@ var CarLess = (function(CarLess){
 
   function tripData(){
     return _allTripMap;
+  }
+
+  function getTrip(tripId){
+    return _allTripMap[tripId];
+  }
+
+  function launchDirections(event){
+    var _activityBox = $(this).closest('.activity-box');
+    var tripId = _activityBox.data('trip-id');
+    var urlTemplate = _.template("https://www.google.com/maps/dir/Current+Location/<%= latitude %>,<%= longitude %>");
+    var trip = getTrip(tripId);
+    var start = trip['starting_trailhead'];
+    var end = trip['ending_trailhead'];
+    var startUrl = urlTemplate({
+      latitude:start['geometry']['coordinates'][1],
+      longitude:start['geometry']['coordinates'][0]
+    });
+    window.open(startUrl,"_blank");
+    if(end && end['id'] != start['id']){
+      var urlTemplate = _.template("https://www.google.com/maps/dir/<%= latitude %>,<%= longitude %>/Current+Location");
+      var endUrl = urlTemplate({
+        latitude:start['geometry']['coordinates'][1],
+        longitude:start['geometry']['coordinates'][0]
+      });
+      window.open(endUrl,"_blank");
+    }
   }
 
   function zoomIn(event){
@@ -149,6 +185,14 @@ var CarLess = (function(CarLess){
     var _route = L.geoJson(_allTripMap[tripId].geometry,{
       style: _trailStyle
     }).addTo(_map);
+    var _start = L.geoJson(_allTripMap[tripId].starting_trailhead.geometry,{
+      style: _startStyle
+    }).addTo(_map);
+    var _end = L.geoJson(_allTripMap[tripId].ending_trailhead.geometry,{
+      style: _endStyle
+    }).addTo(_map);
+
+    _overLays['route'] = _route;
     _map.fitBounds(_route.getBounds());
     // _map.setView([43,-111],10);
     return _map;

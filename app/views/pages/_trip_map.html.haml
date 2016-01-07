@@ -3,6 +3,9 @@
   .map-box
     .map-container(id="#{map_id}")
     #map-toolbar
+      .map-toolbar-btn.basemap-toolbar-btn
+        .lead.beefy
+          %i.fa.fa-map
       .map-toolbar-btn.layer-toolbar-btn
         .lead.beefy
           %i.fa.fa-map-marker
@@ -18,6 +21,13 @@
         .pull-right
           .lead.beefy
             %i.fa.fa-close.layer-toolbar-close-btn
+      .layer-item.route(data-name='route')
+        .icon
+        .label
+          Route
+        .indicator
+          %i.fa.fa-square-o.unchecked
+          %i.fa.fa-check-square-o.checked
       .layer-item.photos
         .icon
         .label
