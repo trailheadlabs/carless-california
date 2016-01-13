@@ -20,7 +20,7 @@ class DestinationsController < ApplicationController
         end
         trip['properties'] = JSON.load(trip['application_properties'].select{|p| p['key'] == 'properties'}[0]['value'])
       end
-      trips.select{|t| t['properties']['region'] == params[:id]}            
+      trips.select{|t| t['properties']['region'] == params[:id]}
     end
 
     respond_to do |format|
@@ -34,6 +34,4 @@ class DestinationsController < ApplicationController
 
   end
 
-  def south_lake_tahoe
-  end
 end

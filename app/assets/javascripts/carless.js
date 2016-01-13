@@ -167,8 +167,8 @@ var CarLess = (function(CarLess){
     $('.to-select').on('click',function(){
       $('.to-select .unselected-items').slideToggle(200);
     });
-    $('#activities-content').load('/destinations/activities/yosemite');
-    $.getJSON('/destinations/activities/yosemite.json',function(data){
+    $('#activities-content').load('/destinations/activities/' + destination);
+    $.getJSON('/destinations/activities/'+destination+'.json',function(data){
       _.each(data,function(item){
         _allTripMap[item['id']] = item;
       })
