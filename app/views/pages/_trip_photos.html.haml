@@ -4,7 +4,7 @@
     .col-md-5.visible-md.visible-lg
       .photo-thumbnails
         - row_index = 0
-        - trip['photos']['data'].each_slice(3) do |photos|
+        - trip['images'].each_slice(3) do |photos|
           .row
             - photos.each_with_index do |photo,i|
               .col-md-4.nopadding
@@ -15,7 +15,7 @@
       .trip-photo-gallery
         .carousel.slide(id="#{carousel_id}" data-ride="carousel")
           .carousel-inner(role="listbox")
-            - trip['photos']['data'].each_with_index do |photo,index|
+            - trip['images'].each_with_index do |photo,index|
               - if index == 0
                 .item.active
                   = image_tag photo['large']['cdn_url']

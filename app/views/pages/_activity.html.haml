@@ -6,7 +6,7 @@
           .row.activity-heading
             .col-md-7
               %h4
-                - name = trip['name'] || "Bay View Loop Trail"
+                - name = trip['name'] || "Hiking Trip"
                 = name
             .col-md-5.hidden-sm.hidden-xs
               .cta-btn-dark.check-it-out-button
@@ -14,11 +14,15 @@
           .row
             .col-md-12
               %strong
-                13.2 mi Hike
+                = human_trip_length(trip)
+                = trip['properties']['activity'] || 'Hike'
               .lead
-                This trail is great for bird spotting and a light to moderate workout for anyone who is seeking...
+                = truncate_html(trip['description'], length:80)
         .col-md-4
-          = image_tag "/assets/placeholders/destination_profile.png"
+          - begin
+            = image_tag trip['photos']['data'][0]['medium_square']['cdn_url']
+          - rescue
+            = image_tag 'placeholders/destination_profile.png'
       .row.visible-sm.visible-xs
         .col-xs-12
           .cta-btn-dark.padded.check-it-out-button

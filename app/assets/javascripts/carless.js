@@ -18,15 +18,23 @@ var CarLess = (function(CarLess){
       lineCap: 'round',
       dashArray: "6,10"
     };
+
   var _startStyle = {
-      "marker-color": "#129623",
-      weight: 5,
-      opacity: 1.0
+      "fillColor": "#37ee4f",
+      "color" : "#3E6D92",
+      "radius": 15,
+      "opacity": 1.0,
+      "fillOpacity": 1.0,
+      "weight": 5
   };
+
   var _endStyle = {
-      "marker-color": "#961212",
-      weight: 5,
-      opacity: 1.0
+      "fillColor": "#fc4f44",
+      "color" : "#3E6D92",
+      "radius": 15,
+      "opacity": 1.0,
+      "fillOpacity": 1.0,
+      "weight": 5
   };
 
 
@@ -182,16 +190,22 @@ var CarLess = (function(CarLess){
       zoomControl: false
     }
     var _map = L.mapbox.map(_element, 'trailheadlabs.63dd9d04',_mapOptions);
-    var _route = L.geoJson(_allTripMap[tripId].geometry,{
+    var _geom = L.geoJson(_allTripMap[tripId].geometry,{
       style: _trailStyle
-    }).addTo(_map);
-    var _start = L.geoJson(_allTripMap[tripId].starting_trailhead.geometry,{
-      style: _startStyle
-    }).addTo(_map);
-    var _end = L.geoJson(_allTripMap[tripId].ending_trailhead.geometry,{
-      style: _endStyle
-    }).addTo(_map);
-
+    });
+    var _startPoint = _allTripMap[tripId].starting_trailhead.geometry;
+    var _start = L.geoJson(_startPoint, {
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, _startStyle);
+      }
+    });
+    var _endPoint = _allTripMap[tripId].ending_trailhead.geometry;
+    var _end = L.geoJson(_endPoint, {
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, _endStyle);
+      }
+    });
+    var _route = L.featureGroup([_geom,_start,_end]).addTo(_map);
     _overLays['route'] = _route;
     _map.fitBounds(_route.getBounds());
     // _map.setView([43,-111],10);

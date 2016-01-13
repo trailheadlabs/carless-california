@@ -22,6 +22,7 @@ gem 'simple_form'
 gem 'font-awesome-sass'
 gem 'underscore-rails'
 gem 'newrelic_rpm'
+gem 'truncate_html'
 
 group :development do
   gem 'better_errors'

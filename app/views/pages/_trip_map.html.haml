@@ -3,9 +3,9 @@
   .map-box
     .map-container(id="#{map_id}")
     #map-toolbar
-      .map-toolbar-btn.basemap-toolbar-btn
-        .lead.beefy
-          %i.fa.fa-map
+      -# .map-toolbar-btn.basemap-toolbar-btn
+      -#   .lead.beefy
+      -#     %i.fa.fa-map
       .map-toolbar-btn.layer-toolbar-btn
         .lead.beefy
           %i.fa.fa-map-marker
@@ -25,7 +25,7 @@
         .icon
         .label
           Route
-        .indicator
+        .indicator.selected
           %i.fa.fa-square-o.unchecked
           %i.fa.fa-check-square-o.checked
       .layer-item.photos
