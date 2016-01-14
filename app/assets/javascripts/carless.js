@@ -56,6 +56,8 @@ var CarLess = (function(CarLess){
     _baseMaps['Hike'] = L.mapbox.tileLayer('trailheadlabs.63dd9d04');
     _baseMaps['Topo'] = L.mapbox.tileLayer('trailheadlabs.b9b3498e');
     _baseMaps['Satellite'] = L.mapbox.tileLayer('trailheadlabs.91eedbd1');
+    _baseMaps['National Parks'] = L.mapbox.tileLayer('nps.2yxv8n84',{
+      accessToken:'pk.eyJ1IjoibnBzIiwiYSI6ImNpaG5ua2l3NjBwMGt2YmtsNWNlbTB6NGUifQ.ierCbAbCgoiEzQJFXTeoYA'});
   }
 
   function setBasemap(event){
