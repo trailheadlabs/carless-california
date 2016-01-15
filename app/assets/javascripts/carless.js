@@ -10,6 +10,7 @@ var CarLess = (function(CarLess){
   var _baseMaps = {};
   var _overLays = {};
   var _map;
+  var _currentBasemap;
   var  _trailStyle = {
       stroke: true,
       color: "#3E6D92",
@@ -62,12 +63,11 @@ var CarLess = (function(CarLess){
 
   function setBasemap(event){
     var _name = $(this).data('name');
-    var layer = _baseMaps[_name];
-    if (_map.hasLayer(layer)) {
-      _map.removeLayer(layer);
-    } else {
-      _map.addLayer(layer);
+    if(_currentBasemap){
+      _map.removeLayer(_currentBasemap);
     }
+    _currentBasemap = _baseMaps[_name];
+    _map.addLayer(_currentBasemap);
     return false;
   }
 
@@ -191,7 +191,9 @@ var CarLess = (function(CarLess){
       scrollWheelZoom: false,
       zoomControl: false
     }
-    var _map = L.mapbox.map(_element, 'trailheadlabs.63dd9d04',_mapOptions);
+    var _map = L.mapbox.map(_element,null,_mapOptions);    
+    _map.addLayer(_baseMaps['Hike']);
+    _currentBasemap = _baseMaps['Hike'];
     var _geom = L.geoJson(_allTripMap[tripId].geometry,{
       style: _trailStyle
     });
