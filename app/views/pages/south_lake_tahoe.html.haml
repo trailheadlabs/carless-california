@@ -49,7 +49,7 @@
   .row
     .col-md-12
       .destination-heading
-        = image_tag "placeholders/destination_profile.png", class: "destination-image"
+        = image_tag "photos/tahoe_summary.jpg", class: "destination-image"
         .destination-blurb
           .lead
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
@@ -68,7 +68,7 @@
         .circulabel.pull-right.close-btn
           %i.fa.fa-minus
 
-= render partial: "/pages/tahoe_additional_info", locals:{from:from}
+= render partial: "/pages/additional_info/south_lake_tahoe/#{orig_from}", locals:{from:from}
 
 .blue-container
   .container

@@ -27,6 +27,10 @@
 .additional-information-content{
   margin-bottom: 30px;
   display:none;
+  h3, h4, h5{
+    color:$darkGrey;
+  }
+
 }
 
 .additional-info-container {

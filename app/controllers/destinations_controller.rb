@@ -22,6 +22,8 @@ class DestinationsController < ApplicationController
             nil
           end
         end
+        # if there is no ending trailhead then set it to the starting trailhead
+        trip['ending_trailhead'] ||= trip['starting_trailhead']
         trip['properties'] = {}
         trip['application_properties'].each{|p| trip['properties'][p['key']] = p['value']}
       end

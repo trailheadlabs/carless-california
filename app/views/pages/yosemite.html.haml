@@ -48,12 +48,14 @@
   .row
     .col-md-12
       .destination-heading
-        = image_tag "placeholders/destination_profile.png", class: "destination-image"
+        = image_tag "photos/yosemite_summary.jpg", class: "destination-image"
         .destination-blurb
           .lead
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+            Boasting massive granite cliffs, waterfalls, clear streams, giant sequoia trees and much more, Yosemite is one of the world’s premier national parks!
           .lead
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            Did you know you can take transit to many of the destinations in Yosemite? YARTS is a entire transit system dedicated to getting people to and from the park, and once you are there, the National Park Service operates a free shuttle, dropping you off right where you want to go. Amtrak offers an extensive rail and bus network, connecting to YARTS in Merced in California’s Central Valley.
+          .lead
+            Plan a one way hike, enjoy the scenery on the way to your destination, save time and money, no parking hassles, and many more benefits, all by taking transit to Yosemite!
         .clearfix
 
 .additional-info-container
@@ -67,7 +69,7 @@
         .circulabel.pull-right.close-btn
           %i.fa.fa-minus
 
-= render partial: "/pages/yosemite_additional_info", locals:{from:from}
+= render partial: "/pages/additional_info/yosemite/#{orig_from}", locals:{from:from}
 
 .blue-container
   .container
