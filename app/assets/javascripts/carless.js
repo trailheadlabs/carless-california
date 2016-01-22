@@ -67,7 +67,7 @@ var CarLess = (function(CarLess){
       _map.removeLayer(_currentBasemap);
     }
     _currentBasemap = _baseMaps[_name];
-    _map.addLayer(_currentBasemap);
+    _map.addLayer(_currentBasemap,true);
     return false;
   }
 
@@ -191,7 +191,7 @@ var CarLess = (function(CarLess){
       scrollWheelZoom: false,
       zoomControl: false
     }
-    var _map = L.mapbox.map(_element,null,_mapOptions);    
+    _map = L.mapbox.map(_element,null,_mapOptions);
     _map.addLayer(_baseMaps['Hike']);
     _currentBasemap = _baseMaps['Hike'];
     var _geom = L.geoJson(_allTripMap[tripId].geometry,{
@@ -212,8 +212,53 @@ var CarLess = (function(CarLess){
     var _route = L.featureGroup([_geom,_start,_end]).addTo(_map);
     _overLays['route'] = _route;
     _map.fitBounds(_route.getBounds());
+    if(tripData()[tripId].properties['region'] == 'yosemite'){
+      loadYosemiteOverlays();
+    };
+    if(tripData()[tripId].properties['region'] == 'south_lake_tahoe'){
+      loadTahoeOverlays();
+    };
+
     // _map.setView([43,-111],10);
     return _map;
+  }
+
+  function loadYosemiteOverlays(){
+    var vizjson = "https://trailheadlabs.cartodb.com/api/v2/viz/ec217aa8-c0bd-11e5-926c-0e3ff518bd15/viz.json"
+    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
+      _overLays['food'] = layer;
+    })
+    .on('error', function(err) {
+      console.log("some error occurred: " + err);
+    });
+    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/4ab2fdf8-c0c3-11e5-a22c-0ecd1babdde5/viz.json';
+    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
+      _overLays['lodging'] = layer;
+    })
+    .on('error', function(err) {
+      console.log("some error occurred: " + err);
+    });
+    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/2e3836dc-c0c5-11e5-9038-0e674067d321/viz.json';
+    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
+      _overLays['campgrounds'] = layer;
+    })
+    .on('error', function(err) {
+      console.log("some error occurred: " + err);
+    });
+
+
+  }
+
+  function loadTahoeOverlays(){
+    var vizjson = "https://trailheadlabs.cartodb.com/api/v2/viz/ec217aa8-c0bd-11e5-926c-0e3ff518bd15/viz.json"
+    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
+      _overLays['food'] = layer;
+      console.log(layer);
+    })
+    .on('error', function(err) {
+      console.log("some error occurred: " + err);
+    });
+
   }
 
   function openLayerToolbar(event){

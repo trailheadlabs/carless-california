@@ -1,39 +1,40 @@
-%h3
-  = trip['name']
-.lead.description
-  != trip['description']
-.trailheads
-  .start
-    %span.lead.beefy
-      Start
-    %span.lead
-      = trip['starting_trailhead']['name']
-  .end
-    %span.lead.beefy
-      End
-    %span.lead
-      = trip['ending_trailhead']['name']
-.stats
-  .row
-    .col-sm-3
-      %h4 Length
-      %h3= human_trip_length(trip)
-    .col-sm-3
-      %h4 Activity
-      %h3= trip['properties']['activity'] || 'Hike'
-    .col-sm-3
-      %h4 Duration
-      %h3= trip['duration']
-    .col-sm-3
-      %h4 Intensity
-      %h3= trip['intensity']
-  .row
-    .col-sm-3
-      %h4 Elevation
-      %h3= trip['properties']['elevation'] || '-'
-    .col-sm-3
-      %h4 Season
-      %h3= trip['properties']['season'] || 'All Year'
-    .col-sm-6
-      .cta-btn.get-directions-btn
-        Get Directions
+.trip-description
+  %h3
+    = trip['name']
+  .lead.description
+    != trip['description']
+  .trailheads
+    .start
+      %span.lead.beefy
+        Start
+      %span.lead
+        = trip['starting_trailhead']['name']
+    .end
+      %span.lead.beefy
+        End
+      %span.lead
+        = trip['ending_trailhead']['name']
+  .stats
+    .row
+      .col-sm-3
+        %h4 Length
+        %h3= human_trip_length(trip)
+      .col-sm-3
+        %h4 Activity
+        %h3= trip['properties']['activity'] || 'Hike'
+      .col-sm-3
+        %h4 Duration
+        %h3= trip['duration']
+      .col-sm-3
+        %h4 Intensity
+        %h3= trip['intensity']
+    .row
+      .col-sm-3
+        %h4 Elevation
+        %h3= trip['properties']['elevation'] || '-'
+      .col-sm-3
+        %h4 Season
+        %h3= trip['properties']['season'] || 'All Year'
+      .col-sm-6
+        .cta-btn.get-directions-btn
+          Get Directions
