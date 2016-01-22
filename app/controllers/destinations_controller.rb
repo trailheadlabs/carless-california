@@ -15,10 +15,15 @@ class DestinationsController < ApplicationController
         trip['starting_trailhead'] = Rails.cache.fetch(['trailhead',trip['starting_trailhead_id']],expires_in:60) do
           JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['starting_trailhead_id']}.json"))
         end
-        trip['ending_trailhead'] = Rails.cache.fetch(['trailhead',trip['starting_ending_id']],expires_in:60) do
-          JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['ending_trailhead_id']}.json"))
+        trip['ending_trailhead'] = Rails.cache.fetch(['trailhead',trip['ending_trailhead_id']],expires_in:60) do
+          begin
+            JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['ending_trailhead_id']}.json"))
+          rescue
+            nil
+          end
         end
-        trip['properties'] = JSON.load(trip['application_properties'].select{|p| p['key'] == 'properties'}[0]['value'])
+        trip['properties'] = {}
+        trip['application_properties'].each{|p| trip['properties'][p['key']] = p['value']}
       end
       trips.select{|t| t['properties']['region'] == params[:id]}
     end

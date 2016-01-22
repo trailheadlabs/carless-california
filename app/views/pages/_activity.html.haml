@@ -32,9 +32,10 @@
       .row
         .col-md-12
           = render partial: "/pages/trip_details",locals:{trip_id:trip_id,trip:trip}
-    .trip-photos
-      .container
-        .row
-          .col-md-12
-            = render partial: "/pages/trip_photos",locals:{trip_id:trip_id,trip:trip}
+    - if trip['photos'] && trip['photos']['data'].any?
+      .trip-photos
+        .container
+          .row
+            .col-md-12
+              = render partial: "/pages/trip_photos",locals:{trip_id:trip_id,trip:trip}
     = render partial: "/pages/trip_map",locals:{trip_id:trip_id}
