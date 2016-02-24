@@ -20,7 +20,7 @@
                 = truncate_html(trip['description'], length:80)
         .col-md-4
           - begin
-            = image_tag trip['photos']['data'][0]['medium_square']['cdn_url']
+            = image_tag trip['images'][0]['medium_square']['cdn_url'], class: 'check-it-out-button'
           - rescue
             = image_tag 'placeholders/destination_profile.png'
       .row.visible-sm.visible-xs
@@ -32,7 +32,7 @@
       .row
         .col-md-12
           = render partial: "/pages/trip_details",locals:{trip_id:trip_id,trip:trip}
-    - if trip['photos'] && trip['photos']['data'].any?
+    - if trip['images'] && trip['images'].any?
       .trip-photos
         .container
           .row

@@ -9,7 +9,7 @@
             - photos.each_with_index do |photo,i|
               .col-md-4.nopadding
                 .trip-photo-thumbnail(data-target="##{carousel_id}" data-slide-to="#{row_index}")
-                  = image_tag photo['small']['cdn_url']
+                  = image_tag photo['small_square']['cdn_url']
               - row_index += 1
     .col-md-7
       .trip-photo-gallery
