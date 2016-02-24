@@ -38,6 +38,17 @@ var CarLess = (function(CarLess){
       "weight": 5
   };
 
+  var onReadyCallbacks = [];
+
+  function onReady(callback){
+    onReadyCallbacks.push(callback);
+  }
+
+  function fireOnReady(){
+    $.each(onReadyCallbacks, function(index,callback){
+      callback();
+    });
+  }
 
   function init(){
     L.mapbox.accessToken = 'pk.eyJ1IjoidHJhaWxoZWFkbGFicyIsImEiOiJzN29LeEU4In0.3tl1HARqdU8DYUPq064kyw';
@@ -169,7 +180,7 @@ var CarLess = (function(CarLess){
     $('.to-select').on('click',function(){
       $('.to-select .unselected-items').slideToggle(200);
     });
-    $('#activities-content').load('/destinations/activities/' + destination);
+    $('#activities-content').load('/destinations/activities/' + destination, fireOnReady);
     $.getJSON('/destinations/activities/'+destination+'.json',function(data){
       _.each(data,function(item){
         _allTripMap[item['id']] = item;
@@ -297,6 +308,7 @@ var CarLess = (function(CarLess){
   CarLess.tripData = tripData;
   CarLess.loadTripDetails = loadTripDetails;
   CarLess.initDestinationPage = initDestinationPage;
+  CarLess.onReady = onReady;
 
   return CarLess;
 

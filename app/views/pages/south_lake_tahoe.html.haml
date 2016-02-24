@@ -79,7 +79,9 @@
 
 - if _trip_id = params[:trip_id].presence
   :javascript
-    CarLess.loadTripDetails(#{_trip_id});
+    CarLess.onReady(function(){
+      CarLess.loadTripDetails(#{_trip_id});
+    });
 
 :javascript
   $(function(){
