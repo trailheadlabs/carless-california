@@ -3,7 +3,8 @@
     = trip['name']
   .lead.description
     - if trip['text_description'].present?
-      = auto_link(trip['text_description'])
+      %pre
+        = auto_link(trip['text_description'])
     - else
       != trip['description']
   .trailheads

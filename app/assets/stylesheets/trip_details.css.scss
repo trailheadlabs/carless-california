@@ -8,6 +8,14 @@
   }
   .trip-description {
     text-shadow: 0px -1px 1px black;
+    pre{
+      background:inherit;
+      border:none;
+      text-shadow: 0px -1px 1px black;
+      font-size: 27px;
+      color:white;
+      font-family: 'Open Sans', sans-serif;
+    }
   }
 
   .stats {
