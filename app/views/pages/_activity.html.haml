@@ -17,7 +17,7 @@
                 = human_trip_length(trip)
                 = trip['properties']['activity'] || 'Hike'
               .lead
-                = truncate_html(trip['description'], length:80)
+                = auto_link(truncate_html(trip['text_description'] || trip['description'], length:80))
         .col-md-4
           - begin
             = image_tag trip['images'][0]['medium_square']['cdn_url'], class: 'check-it-out-button'

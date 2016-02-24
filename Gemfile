@@ -23,6 +23,7 @@ gem 'font-awesome-sass'
 gem 'underscore-rails'
 gem 'newrelic_rpm'
 gem 'truncate_html'
+gem 'rails_autolink'
 
 group :development do
   gem 'better_errors'

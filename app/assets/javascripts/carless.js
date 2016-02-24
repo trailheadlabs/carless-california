@@ -269,6 +269,13 @@ var CarLess = (function(CarLess){
     .on('error', function(err) {
       console.log("some error occurred: " + err);
     });
+    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/2e3836dc-c0c5-11e5-9038-0e674067d321/viz.json';
+    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
+      _overLays['campgrounds'] = layer;
+    })
+    .on('error', function(err) {
+      console.log("some error occurred: " + err);
+    });
 
   }
 

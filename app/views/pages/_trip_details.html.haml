@@ -2,7 +2,10 @@
   %h3
     = trip['name']
   .lead.description
-    != trip['description']
+    - if trip['text_description'].present?
+      = auto_link(trip['text_description'])
+    - else
+      != trip['description']
   .trailheads
     .start
       %span.lead.beefy
