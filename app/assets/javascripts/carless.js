@@ -238,7 +238,7 @@ var CarLess = (function(CarLess){
   function createPhotoOverlay(tripId){
     var _photoLayer = L.featureGroup();
 
-    $.each(_allTripMap[tripId]['photos'],function(index,item){
+    $.each(_allTripMap[tripId]['images'],function(index,item){
         if(item['geometry']){
           var style = {
             color: '#EDB62E'
