@@ -6,7 +6,7 @@ var CarLess = (function(CarLess){
   var _currentTripId;
   var _currentTripDetails;
   var _allTripMap = {};
-  
+
   var _baseMaps = {};
   var _overLays = {};
   var _map;
@@ -189,6 +189,9 @@ var CarLess = (function(CarLess){
   }
 
   function loadTripMap(tripId){
+    if(_map){
+      _map.remove();
+    }
     _map = buildTripMap(tripId);
   }
 
