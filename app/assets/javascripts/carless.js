@@ -239,7 +239,7 @@ var CarLess = (function(CarLess){
     var _photoLayer = L.featureGroup();
 
     $.each(_allTripMap[tripId]['images'],function(index,item){
-        if(item['geometry']){
+        if(item.geometry.type){
           var style = {
             color: '#EDB62E',
             opacity: 1.0,
