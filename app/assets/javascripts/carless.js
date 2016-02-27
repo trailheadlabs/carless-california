@@ -229,7 +229,7 @@ var CarLess = (function(CarLess){
     if(tripData()[tripId].properties['region'] == 'south_lake_tahoe'){
       loadTahoeOverlays();
     };
-
+    loadCommonOverlays();
     // _map.setView([43,-111],10);
     return _map;
   }
@@ -269,14 +269,17 @@ var CarLess = (function(CarLess){
     .on('error', function(err) {
       console.log("some error occurred: " + err);
     });
-    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/2e3836dc-c0c5-11e5-9038-0e674067d321/viz.json';
+
+  }
+
+  function loadCommonOverlays(){
+    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/bfbab0c4-dd0f-11e5-a11c-0e3ff518bd15/viz.json';
     cartodb.createLayer(_map, vizjson).on('done', function(layer) {
       _overLays['campgrounds'] = layer;
     })
     .on('error', function(err) {
       console.log("some error occurred: " + err);
     });
-
   }
 
   function openLayerToolbar(event){
