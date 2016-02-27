@@ -19,13 +19,13 @@
               - if index == 0
                 .item.active
                   = image_tag photo['large']['cdn_url']
-                  - if photo['attribution_text']
+                  - if photo['attribution_text'].present?
                     .carousel-caption
                       = photo['attribution_text']
               - else
                 .item
                   = image_tag photo['large']['cdn_url']
-                  - if photo['attribution_text']
+                  - if photo['attribution_text'].present?
                     .carousel-caption
                       = photo['attribution_text']
           %a.left.carousel-control{"data-slide" => "prev", :href => "##{carousel_id}", :role => "button"}
