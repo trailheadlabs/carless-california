@@ -15,8 +15,12 @@
       opacity: 0.5;
     }
   }
-  .trip-photo-gallery{    
+  .trip-photo-gallery{
     border: solid 3px $blue;
+    .carousel-inner>.item>img{
+      max-height:500px;
+      min-height:500px;
+    }
     img{
       border: solid 3px white;
     }
