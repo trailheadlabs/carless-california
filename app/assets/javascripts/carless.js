@@ -6,7 +6,7 @@ var CarLess = (function(CarLess){
   var _currentTripId;
   var _currentTripDetails;
   var _allTripMap = {};
-  var _loadedMaps = {};
+  
   var _baseMaps = {};
   var _overLays = {};
   var _map;
@@ -115,14 +115,14 @@ var CarLess = (function(CarLess){
   function zoomIn(event){
     var _activityBox = $(this).closest('.activity-box');
     var _id = _activityBox.data('trip-id');
-    _loadedMaps[_id].zoomIn();
+    _map.zoomIn();
     return false;
   }
 
   function zoomOut(event){
     var _activityBox = $(this).closest('.activity-box');
     var _id = _activityBox.data('trip-id');
-    _loadedMaps[_id].zoomOut();
+    _map.zoomOut();
     return false;
   }
 
@@ -189,10 +189,7 @@ var CarLess = (function(CarLess){
   }
 
   function loadTripMap(tripId){
-    if(!_loadedMaps[tripId]){
-      _map = buildTripMap(tripId);
-      _loadedMaps[tripId] = _map;
-    }
+    _map = buildTripMap(tripId);
   }
 
   function buildTripMap(tripId){
