@@ -2,7 +2,7 @@ class DestinationsController < ApplicationController
 
   def trip_photos
     _images = JSON.load(open("http://api.outerspatial.com/v0/trips/#{params[:trip_id]}/images"))
-    trip = {'images'=>_images['data']}
+    trip = {'images'=>_images['data'].reverse}
     trip_id = params[:trip_id]
     render partial: "/pages/trip_photos", locals: {trip:trip,trip_id:trip_id}
   end
