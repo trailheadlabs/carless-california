@@ -249,7 +249,7 @@ var CarLess = (function(CarLess){
           var marker = L.circleMarker(latlng,style).addTo(_photoLayer);
           marker.setRadius(10);
           marker.on('click',function(){
-            $('#trip-photo-carousel' + tripId).carousel(index);
+            $('#trip-photo-carousel-' + tripId).carousel(index);
           });
         }
     });
