@@ -230,8 +230,28 @@ var CarLess = (function(CarLess){
       loadTahoeOverlays();
     };
     loadCommonOverlays();
+    createPhotoOverlay(tripId);
     // _map.setView([43,-111],10);
     return _map;
+  }
+
+  function createPhotoOverlay(tripId){
+    var _photoLayer = L.featureGroup();
+
+    $.each(_allTripMap[tripId]['photos'],function(index,item){
+        if(item['geometry']){
+          var style = {
+            color: #EDB62E;
+          }
+          var latlng = [item['geometry']['coordinates'][1],item['geometry']['coordinates'][0]];
+          var marker = L.circleMarker(latlng,style).addTo(_photoLayer);
+          marker.setRadius(10);
+          marker.on('click',function(){
+            $('#trip-photo-carousel' + tripId).carousel(index);
+          });
+        }
+    });
+    _overLays['photos'] = _photoLayer;
   }
 
   function loadYosemiteOverlays(){
