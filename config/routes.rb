@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/index/featured_trip" => "application#featured_trip"
   get "/destinations/activity/:id" => "application#activity"
   get "/destinations/activities/:id" => "destinations#activities"
+  get "/trip_photos" => "destinations#trip_photos"
 end

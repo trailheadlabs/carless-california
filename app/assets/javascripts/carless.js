@@ -132,10 +132,6 @@ var CarLess = (function(CarLess){
     return false;
   }
 
-  function fetchTrip(tripId,done){
-    $.getJSON('https://api.outerspatial.com/trips/' + tripId + '.json?expand=true',done);
-  }
-
   function loadTripDetails(tripId){
     var _activityBox = $($('.activity-box').filter(function(){
       return $(this).data('trip-id') == tripId.toString();
@@ -147,7 +143,7 @@ var CarLess = (function(CarLess){
   function showTripDetails(_activityBox){
     var _tripDetails = _activityBox.find('.trip-details')
     _currentTripId = _activityBox.data('trip-id');
-
+    $(_activityBox).find('#trip-photos').load('/trip_photos?trip_id=' + _currentTripId)
     if(_currentTripDetails){
       $(_currentTripDetails).slideUp();
     }
@@ -193,6 +189,12 @@ var CarLess = (function(CarLess){
       _map.remove();
     }
     _map = buildTripMap(tripId);
+    if(_currentBasemap){
+      _map.removeLayer(_currentBasemap);
+    }
+    _currentBasemap = _baseMaps['Hike'];
+    _map.addLayer(_currentBasemap,true);
+
     _map.invalidateSize();
   }
 
@@ -204,7 +206,7 @@ var CarLess = (function(CarLess){
       zoomControl: false
     }
     _map = L.mapbox.map(_element,null,_mapOptions);
-    _map.addLayer(_baseMaps['Hike']);
+    _map.addLayer(_baseMaps['Hike'],true);
     _currentBasemap = _baseMaps['Hike'];
     var _geom = L.geoJson(_allTripMap[tripId].geometry,{
       style: _trailStyle
