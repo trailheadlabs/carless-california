@@ -17,8 +17,19 @@
   }
   .trip-photo-gallery{
     border: solid 3px $blue;
+    .carousel-inner>.item{
+      .carousel-caption {
+        background-color: rgba(0, 0, 0, 0.3);
+        left:0;
+        right:0;
+        bottom:0;
+        padding-bottom:20px;
+        font-size:14px;
+      }
+
+    }
     .carousel-inner>.item>img{
-      max-height:500px;      
+      max-height:500px;
     }
     img{
       border: solid 3px white;
