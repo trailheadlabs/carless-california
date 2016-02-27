@@ -193,6 +193,7 @@ var CarLess = (function(CarLess){
       _map.remove();
     }
     _map = buildTripMap(tripId);
+    _map.invalidateSize();
   }
 
   function buildTripMap(tripId){
@@ -286,7 +287,6 @@ var CarLess = (function(CarLess){
     var vizjson = "https://trailheadlabs.cartodb.com/api/v2/viz/ec217aa8-c0bd-11e5-926c-0e3ff518bd15/viz.json"
     cartodb.createLayer(_map, vizjson).on('done', function(layer) {
       _overLays['food'] = layer;
-      console.log(layer);
     })
     .on('error', function(err) {
       console.log("some error occurred: " + err);
