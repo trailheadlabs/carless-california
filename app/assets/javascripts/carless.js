@@ -304,6 +304,15 @@ var CarLess = (function(CarLess){
     .on('error', function(err) {
       console.log("some error occurred: " + err);
     });
+    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/b215882a-dde3-11e5-8039-0e787de82d45/viz.json';
+    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
+      _overLays['transit'] = layer;
+    })
+    .on('error', function(err) {
+      console.log("some error occurred: " + err);
+    });
+
+
   }
 
   function openLayerToolbar(event){
