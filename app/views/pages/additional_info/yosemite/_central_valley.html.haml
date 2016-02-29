@@ -34,18 +34,25 @@
         .lead
           From Yosemite Valley, YARTS also offers transit to Tuolumne, the east side of the Sierra, all the way to Mammoth. Maps, schedules and more info here.
 
-      %h3 Cost (per adult)
-      .cost-bullet
-        %span.lead.beefy.dark.cost
-          $48
-        %span.lead.description Richmond to Merced on Amtrak *
-      .cost-bullet
-        %span.lead.beefy.dark.cost
-          $25
-        %span.lead.description Sed ut perspiciatis
-      %hr.cost-hr.pull-left
-      .clearfix
-      %h4.total-cost $50-$75
+      %h3 Costs
+
+      %h4 Adult
+
+      .lead $25 round-trip, $13 one-way
+
+      %h4 Child (12 & under)/Senior (62+)
+
+      .lead $18 round-trip, $9 one-way
+
+      .lead
+        %i
+          * With YARTS’s Family Friendly Fares, one child (12 or younger) rides free with each paying adult. Each additional child rides for the children’s fare (see above).
+        %br
+        %i
+          All YARTS fares include Park entrance fee!
+        %br
+        %i
+          = link_to "See full fare schedule.", "http://yarts.com/tickets-and-fares/"
 
       = render partial: "/pages/additional_info/yosemite/lodging"
 

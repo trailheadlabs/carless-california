@@ -34,18 +34,27 @@
         .lead
           From Yosemite Valley, YARTS also offers transit to Tuolumne, the east side of the Sierra, all the way to Mammoth. Maps, schedules and more info here.
 
-      %h3 Cost (per adult)
-      .cost-bullet
-        %span.lead.beefy.dark.cost
-          $48
-        %span.lead.description Richmond to Merced on Amtrak *
-      .cost-bullet
-        %span.lead.beefy.dark.cost
-          $25
-        %span.lead.description Sed ut perspiciatis
-      %hr.cost-hr.pull-left
-      .clearfix
-      %h4.total-cost $50-$75
+      %h3 Costs
+
+      %h4 Adult (Richmond to Merced on Amtrak)
+
+      .lead $48 round trip, $24 one-way
+
+      %h4 Child (12 & under)
+
+      .lead 50% off
+
+      %h4 Senior (62+)
+
+      .lead $20.40 one-way
+
+      .lead
+        %i
+          * Amtrak frequently offers deals and has numerous discounts for students, military, etc.
+        %br
+        %i
+          = link_to "See more info here.", "https://www.amtrak.com/discount-train-fares-for-kids-seniors-military-students-and-more"
+
 
       = render partial: "/pages/additional_info/yosemite/lodging"
 
