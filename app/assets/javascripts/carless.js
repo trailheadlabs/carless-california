@@ -259,60 +259,30 @@ var CarLess = (function(CarLess){
     _overLays['photos'] = _photoLayer;
   }
 
+  function loadCartoDBLayer(vizjson,layer_id){
+    var vizjson =
+    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
+      _overLays[layer_id] = layer;
+    })
+    .on('error', function(err) {
+      console.log("some error occurred: " + err);
+    });
+  }
   function loadYosemiteOverlays(){
-    var vizjson = "https://trailheadlabs.cartodb.com/api/v2/viz/ec217aa8-c0bd-11e5-926c-0e3ff518bd15/viz.json"
-    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
-      _overLays['food'] = layer;
-    })
-    .on('error', function(err) {
-      console.log("some error occurred: " + err);
-    });
-    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/4ab2fdf8-c0c3-11e5-a22c-0ecd1babdde5/viz.json';
-    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
-      _overLays['lodging'] = layer;
-    })
-    .on('error', function(err) {
-      console.log("some error occurred: " + err);
-    });
-    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/2e3836dc-c0c5-11e5-9038-0e674067d321/viz.json';
-    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
-      _overLays['campgrounds'] = layer;
-    })
-    .on('error', function(err) {
-      console.log("some error occurred: " + err);
-    });
-
-
+    loadCartoDBLayer("https://trailheadlabs.cartodb.com/api/v2/viz/ec217aa8-c0bd-11e5-926c-0e3ff518bd15/viz.json",'food')
+    loadCartoDBLayer("https://trailheadlabs.cartodb.com/api/v2/viz/4ab2fdf8-c0c3-11e5-a22c-0ecd1babdde5/viz.json",'lodging')
+    loadCartoDBLayer("https://trailheadlabs.cartodb.com/api/v2/viz/f5f7c448-df0c-11e5-be12-0e787de82d45/viz.json",'restrooms')
   }
 
   function loadTahoeOverlays(){
-    var vizjson = "https://trailheadlabs.cartodb.com/api/v2/viz/ec217aa8-c0bd-11e5-926c-0e3ff518bd15/viz.json"
-    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
-      _overLays['food'] = layer;
-    })
-    .on('error', function(err) {
-      console.log("some error occurred: " + err);
-    });
-
+    loadCartoDBLayer("https://trailheadlabs.cartodb.com/api/v2/viz/7550f1d0-df10-11e5-9def-0e787de82d45/viz.json",'food')
+    loadCartoDBLayer("https://trailheadlabs.cartodb.com/api/v2/viz/c07ad090-df10-11e5-b99e-0e674067d321/viz.json",'lodging')
+    loadCartoDBLayer("https://trailheadlabs.cartodb.com/api/v2/viz/c0a2fc10-df0f-11e5-9af7-0ecfd53eb7d3/viz.json",'restrooms')
   }
 
   function loadCommonOverlays(){
-    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/bfbab0c4-dd0f-11e5-a11c-0e3ff518bd15/viz.json';
-    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
-      _overLays['campgrounds'] = layer;
-    })
-    .on('error', function(err) {
-      console.log("some error occurred: " + err);
-    });
-    var vizjson = 'https://trailheadlabs.cartodb.com/api/v2/viz/b215882a-dde3-11e5-8039-0e787de82d45/viz.json';
-    cartodb.createLayer(_map, vizjson).on('done', function(layer) {
-      _overLays['transit'] = layer;
-    })
-    .on('error', function(err) {
-      console.log("some error occurred: " + err);
-    });
-
-
+    loadCartoDBLayer('https://trailheadlabs.cartodb.com/api/v2/viz/bfbab0c4-dd0f-11e5-a11c-0e3ff518bd15/viz.json','campgrounds')
+    loadCartoDBLayer('https://trailheadlabs.cartodb.com/api/v2/viz/b215882a-dde3-11e5-8039-0e787de82d45/viz.json','transit')
   }
 
   function openLayerToolbar(event){
