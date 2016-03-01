@@ -22,7 +22,7 @@
                   - if photo['attribution_text'].present?
                     .carousel-caption
                       - if photo['attribution_url'].present?
-                        = link_to photo['attribution_text'], photo['attribution_url']
+                        = link_to photo['attribution_text'], photo['attribution_url'], target: "_blank"
                       - else
                         = photo['attribution_text']
               - else
@@ -31,7 +31,7 @@
                   - if photo['attribution_text'].present?
                     .carousel-caption
                       - if photo['attribution_url'].present?
-                        = link_to photo['attribution_text'], photo['attribution_url']
+                        = link_to photo['attribution_text'], photo['attribution_url'], target: "_blank"
                       - else
                         = photo['attribution_text']
 

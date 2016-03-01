@@ -25,7 +25,13 @@
         bottom:0;
         padding-top:12px;
         padding-bottom:12px;
-        font-size:13px;        
+        font-size:13px;
+        a{
+          color:white;
+          &:hover{
+            color:#ccc;
+          }
+        }
       }
 
     }
