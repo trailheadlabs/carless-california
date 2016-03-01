@@ -263,6 +263,7 @@ var CarLess = (function(CarLess){
     var vizjson =
     cartodb.createLayer(_map, vizjson).on('done', function(layer) {
       _overLays[layer_id] = layer;
+      layer.setZIndex(1000);
     })
     .on('error', function(err) {
       console.log("some error occurred: " + err);
