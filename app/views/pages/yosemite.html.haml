@@ -1,8 +1,10 @@
-- orig_from = params[:from] || 'san_francisco'
+- orig_from = params[:from] || 'central_valley'
 - from = orig_from.gsub(/_/,' ').titleize
 
 / Set your background image for this header on the line below.
 %header.intro-header{:style => "background-image: url('#{image_path("photos/yosemite.jpg")}')"}
+  .photo-attribution
+    Photo by Lech Naumovich
   .container
     .row
       .col-md-12

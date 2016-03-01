@@ -1,5 +1,15 @@
 @import 'variables';
 
+.photo-attribution {
+  position:absolute;
+  top:0;
+  left:0;
+  padding:25px;
+  font-size:13px;
+  color:#eee;
+  text-shadow: 1px 1px 4px #666;
+}
+
 body {
   font-size: 20px;
   color: #404040;
