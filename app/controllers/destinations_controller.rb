@@ -26,15 +26,13 @@ class DestinationsController < ApplicationController
             nil
           end
         end
-        if trip['ending_trailhead_id'].present?
-
-          trip['ending_trailhead'] = Rails.cache.fetch(['trailhead',trip['ending_trailhead_id']],expires_in:60) do
-            begin
-              JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['ending_trailhead_id']}.json"))
-            rescue
-              nil
-            end
+        trip['ending_trailhead'] = Rails.cache.fetch(['trailhead',trip['ending_trailhead_id']],expires_in:60) do
+          begin
+            JSON.load(open("http://api.outerspatial.com/v0/trailheads/#{trip['ending_trailhead_id']}.json"))
+          rescue
+            nil
           end
+        end
         # if there is no ending trailhead then set it to the starting trailhead
         trip['ending_trailhead'] ||= trip['starting_trailhead']
         trip['properties'] = {}
