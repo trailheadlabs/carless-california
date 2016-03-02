@@ -51,9 +51,11 @@
 
       %h3 Costs
 
-      %h4 Adult (Richmond to Merced on Amtrak)
+      .strong Richmond to Merced on Amtrak
 
-      .lead $48 round trip, $24 one-way
+      %h4 Adult
+
+      .lead $48 round trip, $24 one-way ()
 
       %h4 Child (12 & under)
 
@@ -69,6 +71,25 @@
         %br
         %i
           = link_to "See more info here.", "https://www.amtrak.com/discount-train-fares-for-kids-seniors-military-students-and-more", target: "_blank"
+
+      .strong Merced to Yosemite on YARTS
+
+      %h4 Adult
+      .lead $25 round-trip, $13 one-way
+
+      %h4 Child (12 & Under)/Senior (62+)
+
+      .lead $18 round-trip, $9 one-way
+
+      .lead
+        %i
+          * With YARTS’s Family Friendly Fares, one child (12 or younger) rides free with each paying adult. Each additional child rides for the children’s fare (see above).
+        %br
+        %i
+          All YARTS fares include Park entrance fee!
+        %br
+        %i
+          = link_to "See full fare schedule.", "http://yarts.com/tickets-and-fares/", target: "_blank"
 
 
       = render partial: "/pages/additional_info/yosemite/lodging"
