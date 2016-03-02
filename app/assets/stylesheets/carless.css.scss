@@ -120,10 +120,6 @@ a:hover,
 a:focus {
   color: #0085a1;
 }
-a img:hover,
-a img:focus {
-  cursor: zoom-in;
-}
 blockquote {
   color: #808080;
   font-style: italic;
@@ -268,9 +264,15 @@ img::-moz-selection {
 }
 .partner-logo
 {
+  cursor: pointer;
   padding-right:20px;
   padding-bottom:60px;
+  a{
+    cursor: pointer;
+  }
   img{
     max-height:120px;
+    cursor: pointer;
   }
+
 }
