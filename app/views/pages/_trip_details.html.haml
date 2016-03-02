@@ -12,12 +12,18 @@
       %span.lead.beefy
         Start
       %span.lead
-        = trip['starting_trailhead']['name']
+        - if trip['starting_trailhead'].present?
+          = trip['starting_trailhead']['name']
+        - else
+          \-
     .end
       %span.lead.beefy
         End
       %span.lead
-        = trip['ending_trailhead']['name']
+        - if trip['ending_trailhead'].present?
+          = trip['ending_trailhead']['name']
+        - else
+          \-
   .stats
     .row
       .col-sm-3
