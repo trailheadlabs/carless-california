@@ -2,12 +2,15 @@
 
 .photo-attribution {
   position:absolute;
-  top:0;
-  left:0;
-  padding:25px;
+  bottom:0;
+  right:0;
+  width: 100%;
+  padding:14px 24px;
   font-size:13px;
   color:#eee;
   text-shadow: 1px 1px 4px #666;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: right;
 }
 
 body {
