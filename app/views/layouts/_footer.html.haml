@@ -5,6 +5,31 @@
       .col-md-12
         .row
           .col-sm-6
-            .copyright.text-muted Copyright © Trailhead Labs
+            .copyright.text-muted
+              Copyright © Trailhead Labs -
+              = link_to "Terms of Service", "#", data:{toggle: "modal", target:"#termsModal"}
           .col-sm-6
+
             %ul.nav.navbar-nav.navbar-right= render 'layouts/navigation_links'
+
+.modal.fade{:role => "dialog", :tabindex => "-1", :id=>'termsModal'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &#215;
+        %h4.modal-title Terms of Service
+
+      .modal-body
+        .terms-body
+          %p
+            This work was made possible by a grant from CAR-LESS CA, a partnership between California State University Chico and the US Forest Service and between California State University Chico, Sierra Business Council and Trailhead Labs.
+          %p
+            CAR-LESS California is seeking a transit transformation to create seamless multimodal networks to connect visitors to outdoor recreation opportunities on public lands. The Pacific Southwest Region of the U.S. Forest Service, Department of Agriculture, in partnership with the CSU, Chico Research Foundation and with close coordination from the Sierra Business Council and Trailhead Labs, is working with other CAR-LESS California sponsors and partners to apply new technology to promote the use of alternative transportation systems to access public lands. CAR-LESS California was funded, in part, through a grant from the Paul S. Sarbanes Transit in Parks (TRIP) program.
+          %p
+            In accordance with Federal law and the U.S. Department of Agriculture policy, the institution is prohibited from discriminating on the basis of race, color, national origin, sex, age or disability. (Not all prohibited bases apply to all programs.)
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+    / /.modal-content
+  / /.modal-dialog
+/ /.modal

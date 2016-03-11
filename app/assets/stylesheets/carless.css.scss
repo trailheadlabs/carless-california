@@ -1,5 +1,17 @@
 @import 'variables';
 
+.terms-body{
+  padding:20px;
+}
+
+.copyright{
+  a{
+    color:white;
+  }
+  a:hover{
+    color:#ccc;
+  }
+}
 .photo-attribution {
   position:absolute;
   bottom:0;
