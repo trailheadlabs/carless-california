@@ -17,17 +17,19 @@
         %h2
           Get outside on public transit!
         .lead
-          Visit iconic outdoor destinations in California without a car. Plan your travel, lodging and outdoor adventure today! 
+          Visit iconic outdoor destinations in California without a car.
+          Plan your travel, lodging and outdoor adventure today!
+          Leave the stress of driving in traffic behind and spend more time with your family and friends as you enjoy the scenery on your way to an amazing outdoor destination!
         %br
       .row.destination-cards
         .col-md-5.col-md-offset-1
           = link_to to_path(id: 'south_lake_tahoe') do
             .south-lake-tahoe
-              = render partial: "destination_card", locals: {title:"South Lake Tahoe"}
+              = render partial: "destination_card", locals: {title:"South Lake Tahoe Excursions"}
         .col-md-5
           = link_to to_path(id: 'yosemite') do
             .yosemite
-              = render partial: "destination_card", locals: {title:"Yosemite"}
+              = render partial: "destination_card", locals: {title:"Yosemite Excursions"}
         %br
         %br
 #featured-trip
